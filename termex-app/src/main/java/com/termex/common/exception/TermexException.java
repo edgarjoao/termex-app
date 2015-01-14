@@ -4,7 +4,7 @@ package com.termex.common.exception;
  * @author joao
  *
  */
-public abstract class TermexExcepton extends Exception {
+public abstract class TermexException extends Exception {
 	/**
 	 * 
 	 */
@@ -48,14 +48,14 @@ public abstract class TermexExcepton extends Exception {
 		this.errorCode = nErrorCode;
 	}
 	/** Constructor Handling Exception*/
-	public TermexExcepton(Exception exception) {
+	public TermexException(Exception exception) {
 		super(exception);
 	}
 	/** Default void Constructor */
-	public TermexExcepton(){
+	public TermexException(){
 	}
 	/** Constructs a new exception with the specified detail message.*/
-	public TermexExcepton(String message) {
+	public TermexException(String message) {
 		super(message);
 		setErrorCode(message);
 	}
