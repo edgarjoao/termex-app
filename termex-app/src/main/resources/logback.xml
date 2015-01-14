@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="false" debug="true">
+    <contextName>termex</contextName>
+    <jmxConfigurator />
+
+    <!-- Standard output log -->
+    <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d %p %c:%L - %m%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Services log -->
+    <appender name="soa" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>${log.services.path}</File>
+        <encoder>
+            <pattern>%d %p %c:%L - %m%n</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+            <maxIndex>${file.rolling.maxbackup}</maxIndex>
+            <FileNamePattern>${log.services.path}.%i</FileNamePattern>
+        </rollingPolicy>
+        <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            <MaxFileSize>${file.rolling.maxsize}</MaxFileSize>
+        </triggeringPolicy>
+    </appender>
+
+    <!-- Loggers -->
+    <logger name="com.termex" level="${log.services.level}">    	
+    	<appender-ref ref="soa" />
+    </logger>       
+       
+    <logger name="org.springframework" level="${log.services.level}" />
+    
+    <logger name="org.springframework.web" level="${log.services.level}" />
+    
+    <logger name="org.hibernate" level="${log.services.level}" />	
+    
+    <logger name="ch.qos.logback" level="${log.services.level}"></logger>	
+    
+    <!-- Root Logger -->
+    <root level="${log.services.level}">
+        <appender-ref ref="${log.loggers.to.use}" />
+    </root>
+
+</configuration>
