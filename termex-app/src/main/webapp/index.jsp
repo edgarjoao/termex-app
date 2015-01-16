@@ -1,1 +1,1 @@
-<% response.sendRedirect("admin/login.html"); %>
+<% response.sendRedirect("admin/inicio.html"); %>

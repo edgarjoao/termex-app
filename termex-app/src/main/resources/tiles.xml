@@ -5,13 +5,41 @@
 <tiles-definitions>
 
 		<!--       -->
-		<!-- Admin -->
+		<!-- Login -->
 		<!--       -->
 		<definition name="login" template="/WEB-INF/jsp/admin/login/login.jsp" />
 		
 		<!-- 
 		<definition name="logout" template="/WEB-INF/jsp/admin/login/loginLayout.jsp" />
 		 -->
+
+		<!--       -->
+		<!-- Admin -->
+		<!--       --> 
+		<definition name="adminLayout" template="/WEB-INF/jsp/admin/adminLayout.jsp">
+			<put-attribute name="header" value="/WEB-INF/jsp/admin/sections/header.jsp" />
+			<put-attribute name="menu" value="/WEB-INF/jsp/admin/sections/menu.jsp" />
+			<put-attribute name="footer" value="/WEB-INF/jsp/admin/sections/footer.jsp" />
+			<put-attribute name="globalmessages" value="/WEB-INF/jsp/admin/sections/globalmessages.jsp" />
+			<put-attribute name="content" value="INICIO" />
+		</definition>
+		
+		<definition name="inicio" extends="adminLayout" />
+		
+		<definition name="categorias" extends="adminLayout">
+			<put-attribute name="content" value="/WEB-INF/jsp/admin/categorias/categorias.jsp" />
+		</definition>
+		
+		<definition name="agregar_categoria" extends="adminLayout">
+			<put-attribute name="content" value="/WEB-INF/jsp/admin/categorias/agregar_categoria.jsp" />
+		</definition>
+		
+		<definition name="editar_categoria" extends="adminLayout">
+			<put-attribute name="content" value="/WEB-INF/jsp/admin/categorias/editar_categoria.jsp" />
+		</definition>
+		
+		
+		
 		
 
 		<!--          -->
@@ -24,6 +52,8 @@
 			 -->
 		</definition>
 		
+		<!-- 
 		<definition name="inicio" extends="mainLayout" />
+		 -->
 	
 </tiles-definitions>
