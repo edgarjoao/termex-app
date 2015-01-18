@@ -72,5 +72,5 @@
 	<form:hidden path="categoryId"/>
 	<input type="hidden" name="categoryDetails[0].languageId" value="1">
 	<input type="hidden" name="categoryDetails[1].languageId" value="2">
-	
+	<input id="activeTab" type="hidden" value="categoriasId" />
 </form:form>

@@ -37,7 +37,14 @@
 		<definition name="editar_categoria" extends="adminLayout">
 			<put-attribute name="content" value="/WEB-INF/jsp/admin/categorias/editar_categoria.jsp" />
 		</definition>
+				
+		<definition name="terminales" extends="adminLayout">
+			<put-attribute name="content" value="/WEB-INF/jsp/admin/terminales/terminales.jsp" />
+		</definition>
 		
+		<definition name="agregar_terminal" extends="adminLayout">
+			<put-attribute name="content" value="/WEB-INF/jsp/admin/terminales/agregar_terminal.jsp" />
+		</definition>
 		
 		
 		

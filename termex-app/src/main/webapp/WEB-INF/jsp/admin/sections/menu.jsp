@@ -6,10 +6,10 @@
 <div id="navigation">
 	<div id="cssmenu">
 		<ul>
-		   <li class="active"><a href="${pageContext.request.contextPath}/admin/inicio.html"><span>Inicio</span></a></li>
-		   <li><a href="${pageContext.request.contextPath}/admin/categorias/categorias.html"><span>Categorias</span></a></li>
-		   <li><a href="productos.html"><span>Productos</span></a></li>
-		   <li><a href="#"><span>Comentarios</span></a></li>
+		   <li id="inicioId"><a href="${pageContext.request.contextPath}/admin/inicio.html"><span>Inicio</span></a></li>
+		   <li id="categoriasId"><a href="${pageContext.request.contextPath}/admin/categorias/categorias.html"><span>Categorias</span></a></li>
+		   <li id="terminalesId"><a href="${pageContext.request.contextPath}/admin/terminales/terminales.html"><span>Terminales</span></a></li>
+		   <li id="comentariosId" ><a href="#"><span>Comentarios</span></a></li>
 		   <li class="last"><a href="#"><span>Banner</span></a></li>
 		</ul>
 	</div>

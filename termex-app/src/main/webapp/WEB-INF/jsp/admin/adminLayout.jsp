@@ -13,6 +13,22 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/admin/js/jquery-1.8.3.js"></script>
 
 <script type="text/javascript">
+(function ($) {
+	$(document).ready(function(){
+		
+		var activeTab = $("#activeTab");
+		if(activeTab.length == 0){
+			$("#inicioId").addClass("active");			
+		}else {
+			var tapId = activeTab.val(); 
+			$("#" + tapId).addClass("active");
+		}
+		
+	}); 
+})(jQuery);
+</script>
+
+<script type="text/javascript">
 function confirmDelete(code){
 	if( confirm('Eliminar Registro ' + code + '?') ){
 		return true;

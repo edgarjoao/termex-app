@@ -4,12 +4,12 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
-<form:form id="categoryView" name="categoryView" modelAttribute="categoryView" method="post" autocomplete="off">
+<form:form id="productView" name="productView" modelAttribute="productView" method="post" autocomplete="off" enctype="multipart/form-data" >
 
 	<table align="center" width="40%" cellpadding="2" cellspacing="1" border="0" bgcolor="#CCCCC0">
 		<tr>
 			<td colspan="2" align="center" class="titulocolumna">
-			   <b>Agregar Categoria</b>
+			   <b>Agregar Terminal</b>
 			</td>			
 		</tr>
 		
@@ -18,7 +18,30 @@
 				Código
 			</td>
 			<td class="etiqueta_campo">
-				<input type="text" name="code" class="campo_texto" value="" size="42"/>
+				<input type="text" name="productCode" class="campo_texto" value="" size="42"/>
+			</td>
+		</tr>
+		
+		<tr>
+			<td class="etiqueta">
+				Imagen
+			</td>
+			<td class="etiqueta_campo">
+				<input type="file" size="35" name="image"> 
+			</td>
+		</tr>
+		
+		<tr>
+			<td class="etiqueta">
+				Categoria
+			</td>
+			<td class="etiqueta_campo">
+				<select class="campo_texto" style="width:180px" name="categoryId">
+				  <option value="-1">Seleccione una opción</option>
+				  <c:forEach items="${categories}" var="row">
+				  	<option value="${row.categoryId}">${row.code}</option>
+				  </c:forEach>				  				 
+				</select>
 			</td>
 		</tr>
 		
@@ -33,7 +56,7 @@
 				Español
 			</td>
 			<td class="etiqueta_campo">
-				<textarea name="categoryDetails[0].description" rows="3" cols="40" class="campo_texto"></textarea>
+				<textarea name="productDetails[0].description" rows="3" cols="40" class="campo_texto"></textarea>
 			</td>
 		</tr>
 		
@@ -42,7 +65,7 @@
 				Inglés
 			</td>
 			<td class="etiqueta_campo">
-				<textarea name="categoryDetails[1].description" rows="3" cols="40" class="campo_texto"></textarea>
+				<textarea name="productDetails[1].description" rows="3" cols="40" class="campo_texto"></textarea>
 			</td>
 		</tr>
 		
@@ -57,7 +80,7 @@
 				  <option value="I">Inactivo</option>
 				</select>
 			</td>
-		</tr>
+		</tr>		
 		
 		<tr>
 			<td colspan="2" class="tabla_footer_paginator">
@@ -68,7 +91,7 @@
 		
 	</table>
 	
-	<input type="hidden" name="categoryDetails[0].languageId" value="1">
-	<input type="hidden" name="categoryDetails[1].languageId" value="2">
-	<input id="activeTab" type="hidden" value="categoriasId" />
+	<input type="hidden" name="productDetails[0].languageId" value="1">
+	<input type="hidden" name="productDetails[1].languageId" value="2">	
+	<input id="activeTab" type="hidden" value="terminalesId" />
 </form:form>

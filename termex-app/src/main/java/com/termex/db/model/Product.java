@@ -40,8 +40,8 @@ public class Product implements Serializable {
 	private Category category;
 
 	//bi-directional many-to-one association to ProductDetail
-	@Fetch(FetchMode.SELECT)
-	@OneToMany(mappedBy="product")
+	//@Fetch(FetchMode.SELECT)
+	@OneToMany(mappedBy="product", fetch=FetchType.EAGER)
 	private List<ProductDetail> productDetails;
 
 	public Product() {
