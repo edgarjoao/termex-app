@@ -136,8 +136,29 @@ public class CategoryDAO extends HibernateDaoSupport {
 	@SuppressWarnings("unchecked")
 	public List<Category> getListOfCategories() throws CategoryException {		
 		try{
-			//return getHibernateTemplate().find("SELECT c FROM Category c", Category.class);
 			return getSession().createSQLQuery("SELECT * FROM CATEGORY").addEntity(Category.class).list();			
+		}catch(Exception e){
+			CategoryException categoryException = new CategoryException(e, 
+					TermexException.LAYER_DAO, TermexException.ACTION_SELECT);
+			throw categoryException;
+		}
+	}
+	
+
+	@SuppressWarnings("unchecked")
+	public List<Category> getListOfCategoriesByLang(int languageId) throws CategoryException {		
+		try{
+
+			StringBuilder sql = new StringBuilder();
+			sql.append("SELECT * FROM CATEGORY c ")
+				.append("INNER JOIN CATEGORY_DETAIL cd ")
+				.append("on c.ID_CAT = cd.ID_CAT ")
+				.append("WHERE cd.ID_LANG = :langId");
+			
+			Query query = getSession().createSQLQuery(sql.toString()).addEntity(
+					Category.class).setParameter("langId", languageId);
+			
+			return query.list();			
 		}catch(Exception e){
 			CategoryException categoryException = new CategoryException(e, 
 					TermexException.LAYER_DAO, TermexException.ACTION_SELECT);

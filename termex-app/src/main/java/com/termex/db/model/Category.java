@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -36,8 +37,8 @@ public class Category implements Serializable {
 	private String catStatus;
 
 	//bi-directional many-to-one association to CategoryDetail
-	@Fetch(FetchMode.SELECT)
-	@OneToMany(mappedBy="category")
+	//@Fetch(FetchMode.SELECT)
+	@OneToMany(mappedBy="category", fetch=FetchType.LAZY)
 	private List<CategoryDetail> categoryDetails;
 
 	//bi-directional many-to-one association to Product

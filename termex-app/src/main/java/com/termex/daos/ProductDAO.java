@@ -116,4 +116,57 @@ public class ProductDAO extends HibernateDaoSupport {
 		}
 	}
 	
+	public int count(String lang, int categoryId, int offset) throws ProductException{
+		try{
+			StringBuilder sql = new StringBuilder(0);
+			
+			sql.append("SELECT * FROM Product p")
+				.append("ON p.ID_PROD = pd.ID_PROD")					
+				.append("INNER JOIN product_detail pd")
+				.append("WHERE pd.ID_LANG = :lang")
+				.append("AND p.ID_CAT = :catId")
+				.append("AND p.PROD_STATUS = 'A'");
+			
+			Query query = getSession().createSQLQuery(sql.toString())
+			.addEntity(Product.class)
+			.setParameter("lang", lang)
+			.setParameter("catId", categoryId);			
+	
+			return (Integer) query.uniqueResult();
+		}catch(Exception e){
+			logger.error("Product DAO Error ",e);
+			ProductException categoryException = new ProductException(e, 
+					ProductException.LAYER_DAO, ProductException.ACTION_SELECT);
+			throw categoryException;
+		}
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Product> getListOfProducts(String lang, int categoryId, int offset) throws ProductException{
+		try{
+			StringBuilder sql = new StringBuilder(0);
+			
+			sql.append("SELECT * FROM Product p")
+			.append("ON p.ID_PROD = pd.ID_PROD")					
+			.append("INNER JOIN product_detail pd")
+			.append("WHERE pd.ID_LANG = :lang")
+			.append("AND p.ID_CAT = :catId")
+			.append("AND p.PROD_STATUS = 'A'")
+			.append("LIMIT :offset, 10");
+			
+			Query query = getSession().createSQLQuery(sql.toString())
+					.addEntity(Product.class)
+					.setParameter("lang", lang)
+					.setParameter("catId", categoryId)
+					.setParameter("offset", offset);			
+			
+			return query.list();
+		}catch(Exception e){
+			logger.error("Product DAO Error ",e);
+			ProductException categoryException = new ProductException(e, 
+					ProductException.LAYER_DAO, ProductException.ACTION_SELECT);
+			throw categoryException;
+		}
+	}
+	
 }

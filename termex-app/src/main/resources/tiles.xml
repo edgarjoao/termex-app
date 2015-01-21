@@ -7,11 +7,12 @@
 		<!--       -->
 		<!-- Login -->
 		<!--       -->
-		<definition name="login" template="/WEB-INF/jsp/admin/login/login.jsp" />
-		
-		<!-- 
-		<definition name="logout" template="/WEB-INF/jsp/admin/login/loginLayout.jsp" />
-		 -->
+		<definition name="login" extends="loginLayout" />
+
+		<definition name="loginLayout" template="/WEB-INF/jsp/admin/loginLayout.jsp">
+			<put-attribute name="footer" value="/WEB-INF/jsp/admin/sections/footer.jsp" />
+			<put-attribute name="login-box" value="/WEB-INF/jsp/admin/login/login.jsp" />
+		</definition>
 
 		<!--       -->
 		<!-- Admin -->
@@ -45,22 +46,18 @@
 		<definition name="agregar_terminal" extends="adminLayout">
 			<put-attribute name="content" value="/WEB-INF/jsp/admin/terminales/agregar_terminal.jsp" />
 		</definition>
-		
-		
-		
 
 		<!--          -->
 		<!-- Web Site -->
 		<!--          -->
-		<definition name="mainLayout" template="/WEB-INF/jsp/mainLayout.jsp">
-			<!--
-			<put-attribute name="welcome" value="/WEB-INF/jsp/admin/welcome.jsp" />
-			<put-attribute name="menu" value="/WEB-INF/jsp/admin/menu.jsp" />
-			 -->
+		<definition name="mainLayout" template="/WEB-INF/jsp/extranet/mainLayout.jsp">
+			<put-attribute name="header" value="/WEB-INF/jsp/extranet/sections/header.jsp" />
+			<put-attribute name="menu" value="/WEB-INF/jsp/extranet/sections/menu.jsp" />
+			<put-attribute name="main-content" value="/WEB-INF/jsp/extranet/sections/main-content.jsp" />
+			<put-attribute name="left-menu" value="/WEB-INF/jsp/extranet/sections/left-menu.jsp" />
+			<put-attribute name="footer" value="/WEB-INF/jsp/extranet/sections/footer.jsp" />
 		</definition>
 		
-		<!-- 
-		<definition name="inicio" extends="mainLayout" />
-		 -->
+		<definition name="home" extends="mainLayout" />
 	
 </tiles-definitions>

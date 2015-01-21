@@ -20,6 +20,7 @@ import com.termex.exceptions.CategoryException;
 import com.termex.exceptions.ProductException;
 import com.termex.web.views.ProductDetailView;
 import com.termex.web.views.ProductView;
+import com.termex.web.views.ProductsForm;
 
 @Service
 public class ProductService {
@@ -113,6 +114,23 @@ public class ProductService {
 		}catch(ProductException pException){	
 			throw pException;
 		}
+	}
+	
+	public ProductsForm getProductsForm(String lang, String catId, int offset) throws ProductException {
+		ProductsForm form = new ProductsForm();
+		/*
+		try{
+			
+		}catch(ProductException pException){	
+			throw pException;
+		}catch(Exception e){
+			logger.error("Product SERVICE Error ",e);
+			ProductException categoryException = new ProductException(e, 
+					ProductException.LAYER_DAO, ProductException.ACTION_DELETE);
+			throw categoryException;
+		}*/
+		
+		return null;
 	}
 	
 }
