@@ -4,10 +4,11 @@ body {
  font-size: 12px;
 }
 
-#wrapper { 
+#wrapper {
  margin: 0 auto;
  width: 922px;
  box-shadow: 0 2px 5px 5px rgba(0, 0, 0, 0.4);
+ overflow: auto;
 }
 #header {
  width: 900px;
@@ -26,8 +27,8 @@ body {
  margin: 0px 0px 0px 0px;
  /*background-color:#F3F2ED;*/
 }
-#content { 
- width: 900px; 
+#content {
+ width: 900px;
  color: #333;
  border: 1px solid #ccc;
  /*background:#CCC8B3;*/
@@ -35,15 +36,17 @@ body {
  padding: 10px;
  padding-top: 5%;
  padding-bottom: 5%;
- height: auto; 
+ height: auto;
+ overflow: auto;
 }
-#footer { 
+#footer {
  width: 900px;
  color: #333;
  border: 1px solid #ccc;
  background-color:#F3F2ED;
  margin: 0px 0px 10px 0px;
  padding: 10px;
+ clear: both;
 }
 
 #footer_text{
@@ -71,7 +74,7 @@ Common Styles
    background-image: url(../images/fondo_gris.gif);
 }
 
-.columnadatoNon {	
+.columnadatoNon {
 	font-size: 10px;
 	font-weight: normal;
 	text-align: center;
@@ -79,7 +82,7 @@ Common Styles
 	background: #F0F4FB;
 }
 
-.columnadatoPar {	
+.columnadatoPar {
 	font-size: 10px;
 	font-weight: normal;
 	text-align: center;
@@ -100,14 +103,14 @@ Common Styles
 	color:#003366;
 }
 
-.etiqueta {	
+.etiqueta {
 	font-size: 10px;
 	background: #F0F4FB;
 	text-align:right;
 	color:#003366;
 }
 
-.etiqueta_campo {	
+.etiqueta_campo {
 	font-size: 10px;
 	background: #FFFFFF;
 	text-align:left;
@@ -115,7 +118,7 @@ Common Styles
 	font-weight: bold;
 }
 
-.boton{	
+.boton{
 	color:#ffffff;
 	background-repeat: repeat-x;
 	background:url(../images/blueb.gif);
@@ -146,7 +149,7 @@ Common Styles
 	white-space: nowrap;
 }
 
-.tabla_footer_left {	
+.tabla_footer_left {
 	font-size: 10px;
 	background: #FFFFFF;
 	text-align:left;
@@ -154,7 +157,7 @@ Common Styles
 	font-weight: bold;
 }
 
-.tabla_footer_paginator {	
+.tabla_footer_paginator {
 	font-size: 10px;
 	background: #FFFFFF;
 	text-align:right;

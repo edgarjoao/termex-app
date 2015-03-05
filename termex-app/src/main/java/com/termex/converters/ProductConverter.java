@@ -7,7 +7,7 @@ import com.termex.exceptions.ProductException;
 import com.termex.web.views.ProductDetailView;
 import com.termex.web.views.ProductView;
 /**
- * 
+ *
  * @author rioslore
  *
  */
@@ -21,6 +21,8 @@ public class ProductConverter {
 			view.setProductCode(product.getProdCode());
 			view.setProductImage(product.getProdImage());
 			view.setStatus(product.getProdStatus());
+			view.setImageName(product.getProdImageName());
+			view.setImageType(product.getProdImageType());
 		} catch (Exception e) {
 			ProductException productException = new ProductException(e, ProductException.LAYER_CONVERTER,
 					ProductException.ACTION_CONVERTER);
@@ -28,7 +30,7 @@ public class ProductConverter {
 		}
 		return view;
 	}
-	
+
 	public ProductDetailView convertProductDetEntityToView(ProductDetail productDetail) throws ProductException {
 		ProductDetailView view = new ProductDetailView();
 		try{
@@ -41,7 +43,7 @@ public class ProductConverter {
 		}
 		return view;
 	}
-	
+
 	public Product convertProductViewToEntity(ProductView view) throws ProductException {
 		Product entity = new Product();
 		try{
@@ -49,6 +51,8 @@ public class ProductConverter {
 			entity.setProdCode(view.getProductCode());
 			entity.setProdImage(view.getProductImage());
 			entity.setProdStatus(view.getStatus());
+			entity.setProdImageName(view.getImageName());
+			entity.setProdImageType(view.getImageType());
 		} catch (Exception e) {
 			ProductException productException = new ProductException(e, ProductException.LAYER_CONVERTER,
 					ProductException.ACTION_CONVERTER);
@@ -56,7 +60,7 @@ public class ProductConverter {
 		}
 		return entity;
 	}
-	
+
 	public ProductDetail convertProductDetViewToEntity(int productId, int languageId, String description) throws ProductException {
 		ProductDetail entity = new ProductDetail();
 		try{
@@ -72,5 +76,5 @@ public class ProductConverter {
 		}
 		return entity;
 	}
-	
+
 }

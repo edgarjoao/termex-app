@@ -1,18 +1,24 @@
 package com.termex.db.model;
 
 import java.io.Serializable;
-
-import javax.persistence.*;
-
-import org.hibernate.annotations.Fetch;
-import org.hibernate.annotations.FetchMode;
-
 import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 
 
 /**
  * The persistent class for the product database table.
- * 
+ *
  */
 @Entity
 @NamedQuery(name="Product.findAll", query="SELECT p FROM Product p")
@@ -33,6 +39,12 @@ public class Product implements Serializable {
 
 	@Column(name="PROD_STATUS")
 	private String prodStatus;
+
+	@Column(name="PROD_IMAGE_NAME")
+	private String prodImageName;
+
+	@Column(name="PROD_IMAGE_TYPE")
+	private String prodImageType;
 
 	//bi-directional many-to-one association to Category
 	@ManyToOne
@@ -77,6 +89,22 @@ public class Product implements Serializable {
 
 	public void setProdStatus(String prodStatus) {
 		this.prodStatus = prodStatus;
+	}
+
+	public String getProdImageName() {
+		return prodImageName;
+	}
+
+	public void setProdImageName(String prodImageName) {
+		this.prodImageName = prodImageName;
+	}
+
+	public String getProdImageType() {
+		return prodImageType;
+	}
+
+	public void setProdImageType(String prodImageType) {
+		this.prodImageType = prodImageType;
 	}
 
 	public Category getCategory() {

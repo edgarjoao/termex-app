@@ -4,15 +4,44 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
+<script type="text/javascript">
+(function ($) {
+
+	$(document).ready(function(){
+
+		$("#agregarId").click(function(e) {
+			e.preventDefault();
+			  var ft=$('#fileId')[0].files[0];
+			  var oMyForm = new FormData();
+			  oMyForm.append("file", ft);
+			  $.ajax({
+			   url: '${pageContext.request.contextPath}/rest/admin/terminales/upload',
+			    data: oMyForm,
+			    dataType: 'text',
+			    processData: false,
+			    contentType: false,
+			    type: 'POST',
+			    success: function(data){
+			    	$('#result').children("img").remove();
+			    	$('#result').html(data);
+			    }
+			  });
+		})
+
+	});
+
+})(jQuery);
+</script>
+
 <form:form id="productView" name="productView" modelAttribute="productView" method="post" autocomplete="off" enctype="multipart/form-data" >
 
 	<table align="center" width="40%" cellpadding="2" cellspacing="1" border="0" bgcolor="#CCCCC0">
 		<tr>
 			<td colspan="2" align="center" class="titulocolumna">
 			   <b>Agregar Terminal</b>
-			</td>			
+			</td>
 		</tr>
-		
+
 		<tr>
 			<td class="etiqueta">
 				Código
@@ -21,16 +50,16 @@
 				<input type="text" name="productCode" class="campo_texto" value="" size="42"/>
 			</td>
 		</tr>
-		
+
 		<tr>
 			<td class="etiqueta">
 				Imagen
 			</td>
 			<td class="etiqueta_campo">
-				<input type="file" size="35" name="image"> 
+				<input type="file" id="fileId" size="35" name="imagen"> <input class="boton_short" value="Adjuntar" name="adjuntar" id="agregarId">
 			</td>
 		</tr>
-		
+
 		<tr>
 			<td class="etiqueta">
 				Categoria
@@ -40,17 +69,17 @@
 				  <option value="-1">Seleccione una opción</option>
 				  <c:forEach items="${categories}" var="row">
 				  	<option value="${row.categoryId}">${row.code}</option>
-				  </c:forEach>				  				 
+				  </c:forEach>
 				</select>
 			</td>
 		</tr>
-		
+
 		<tr>
 			<td colspan="2" align="center" class="tabla_footer_left">
 			   <b>Descripción Lenguage de la Categoría</b>
-			</td>			
+			</td>
 		</tr>
-		
+
 		<tr>
 			<td class="etiqueta">
 				Español
@@ -59,7 +88,7 @@
 				<textarea name="productDetails[0].description" rows="3" cols="40" class="campo_texto"></textarea>
 			</td>
 		</tr>
-		
+
 		<tr>
 			<td class="etiqueta">
 				Inglés
@@ -68,7 +97,7 @@
 				<textarea name="productDetails[1].description" rows="3" cols="40" class="campo_texto"></textarea>
 			</td>
 		</tr>
-		
+
 		<tr>
 			<td class="etiqueta">
 				Estatus
@@ -80,18 +109,20 @@
 				  <option value="I">Inactivo</option>
 				</select>
 			</td>
-		</tr>		
-		
+		</tr>
+
 		<tr>
 			<td colspan="2" class="tabla_footer_paginator">
 				<input type="submit" value="Agregar" class="boton">
 	               <input type="button" name="cancel" value="Cancelar" class="boton" >
-			</td>		
-		</tr>		
-		
+			</td>
+		</tr>
+
 	</table>
-	
+	<br />
+	<div id="result" style="width: 45%;margin: 0 auto;"></div>
+
 	<input type="hidden" name="productDetails[0].languageId" value="1">
-	<input type="hidden" name="productDetails[1].languageId" value="2">	
+	<input type="hidden" name="productDetails[1].languageId" value="2">
 	<input id="activeTab" type="hidden" value="terminalesId" />
 </form:form>
