@@ -87,7 +87,7 @@ public class ProductAdminController {
 			fileUpload = new FileUpload();
 			fileUpload.setImage(file.getBytes());
 			fileUpload.setContentType(file.getContentType());
-			fileUpload.setName(file.getName());
+			fileUpload.setName(file.getOriginalFilename());
 			fileUpload.setLength(file.getBytes().length);
 		} catch (IOException e) {
 			String msg = "Ocurrió un error al tratar de guardar la imagen";
