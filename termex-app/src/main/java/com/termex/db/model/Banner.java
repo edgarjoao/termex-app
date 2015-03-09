@@ -10,7 +10,7 @@ import java.util.List;
 
 /**
  * The persistent class for the banner database table.
- * 
+ *
  */
 @Entity
 @NamedQuery(name="Banner.findAll", query="SELECT b FROM Banner b")
@@ -29,6 +29,12 @@ public class Banner implements Serializable {
 	@Lob
 	@Column(name="BAN_IMG")
 	private byte[] banImg;
+
+	@Column(name="BAN_IMG_NAME")
+	private String banImgName;
+
+	@Column(name="BAN_IMG_TYPE")
+	private String banImgType;
 
 	@Column(name="BAN_STATUS")
 	private String banStatus;
@@ -62,6 +68,22 @@ public class Banner implements Serializable {
 
 	public void setBanImg(byte[] banImg) {
 		this.banImg = banImg;
+	}
+
+	public String getBanImgName() {
+		return banImgName;
+	}
+
+	public void setBanImgName(String banImgName) {
+		this.banImgName = banImgName;
+	}
+
+	public String getBanImgType() {
+		return banImgType;
+	}
+
+	public void setBanImgType(String banImgType) {
+		this.banImgType = banImgType;
 	}
 
 	public String getBanStatus() {
