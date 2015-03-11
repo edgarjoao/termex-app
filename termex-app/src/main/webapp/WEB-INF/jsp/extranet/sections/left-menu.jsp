@@ -18,14 +18,6 @@
              <li><a href="02-Orange-03-Products-List.html">Bathroom mirrors</a></li>
              <li><a href="02-Orange-03-Products-List.html">Bathroom textiles</a></li>
            </ul>
-           <ul>
-             <li><a href="02-Orange-03-Products-List.html">Bathroom textiles</a></li>
-             <li><a href="02-Orange-03-Products-List.html">Sinks &amp; faucets</a></li>
-             <li><a href="02-Orange-03-Products-List.html">Bathroom organizers</a></li>
-             <li><a href="02-Orange-03-Products-List.html">Bathroom lighting</a></li>
-             <li><a href="02-Orange-03-Products-List.html">Cabinets, shelves &amp; sink cabinets</a></li>
-             <li><a href="02-Orange-03-Products-List.html">Bathroom mirrors</a></li>
-           </ul>
          </li>
        </ul>
      </li>

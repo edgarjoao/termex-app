@@ -5,12 +5,10 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
 <ul class="clearfix">
-	<li><a href="javascript:void(0);">Home</a></li>
-	<li>| <a href="javascript:void(0);">Features</a></li>
-	<li>| <a href="javascript:void(0);">Products</a></li>
-	<li>| <a href="javascript:void(0);">Store Locator</a></li>
-	<li>| <a href="javascript:void(0);">About Us</a></li>
-	<li>| <a href="javascript:void(0);">Product Guidelines</a></li>
-	<li> | <a href="javascript:void(0);">Contact</a></li>
+	<li><a href="${pageContext.request.contextPath}/es/home.html">Inicio</a></li>
+	<li>| <a href="${pageContext.request.contextPath}/es/mision.html">Misión</a></li>
+	<li>| <a href="${pageContext.request.contextPath}/es/vision.html">Visión</a></li>
+	<li>| <a href="${pageContext.request.contextPath}/es/objetivos.html">Objetivos</a></li>
+	<li> | <a href="javascript:void(0);">Contáctanos</a></li>
 </ul>
-<div>&copy; Copyright 2010 OnlineStore | <a href="javascript:void(0);">Terms &amp; Conditions</a> | <a href="javascript:void(0);">Privacy Policy</a></div>
+<div>&copy; Copyright 2015 TER-MEX </div>

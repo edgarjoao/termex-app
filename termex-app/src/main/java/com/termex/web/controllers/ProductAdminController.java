@@ -143,7 +143,16 @@ public class ProductAdminController {
 			HttpServletRequest request, HttpSession httpSession) throws ProductException{
 
 		try{
-			modelMap.addAttribute("productView", productService.getProductViewById(productId));
+
+			ProductView productView = productService.getProductViewById(productId);
+
+			fileUpload = new FileUpload();
+			fileUpload.setContentType(productView.getImageType());
+			fileUpload.setImage(productView.getProductImage());
+			fileUpload.setLength(productView.getProductImage().length);
+			fileUpload.setName(productView.getImageName());
+
+			modelMap.addAttribute("productView", productView);
 		} catch (ProductException pException) {
 			httpSession.setAttribute(CUSTOM_EXCEPTION, pException);
 			throw pException;

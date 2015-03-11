@@ -16,7 +16,7 @@
 
 		<!--       -->
 		<!-- Admin -->
-		<!--       --> 
+		<!--       -->
 		<definition name="adminLayout" template="/WEB-INF/jsp/admin/adminLayout.jsp">
 			<put-attribute name="header" value="/WEB-INF/jsp/admin/sections/header.jsp" />
 			<put-attribute name="menu" value="/WEB-INF/jsp/admin/sections/menu.jsp" />
@@ -24,27 +24,31 @@
 			<put-attribute name="globalmessages" value="/WEB-INF/jsp/admin/sections/globalmessages.jsp" />
 			<put-attribute name="content" value="INICIO" />
 		</definition>
-		
+
 		<definition name="inicio" extends="adminLayout" />
-		
+
 		<definition name="categorias" extends="adminLayout">
 			<put-attribute name="content" value="/WEB-INF/jsp/admin/categorias/categorias.jsp" />
 		</definition>
-		
+
 		<definition name="agregar_categoria" extends="adminLayout">
 			<put-attribute name="content" value="/WEB-INF/jsp/admin/categorias/agregar_categoria.jsp" />
 		</definition>
-		
+
 		<definition name="editar_categoria" extends="adminLayout">
 			<put-attribute name="content" value="/WEB-INF/jsp/admin/categorias/editar_categoria.jsp" />
 		</definition>
-				
+
 		<definition name="terminales" extends="adminLayout">
 			<put-attribute name="content" value="/WEB-INF/jsp/admin/terminales/terminales.jsp" />
 		</definition>
-		
+
 		<definition name="agregar_terminal" extends="adminLayout">
 			<put-attribute name="content" value="/WEB-INF/jsp/admin/terminales/agregar_terminal.jsp" />
+		</definition>
+
+		<definition name="editar_terminal" extends="adminLayout">
+			<put-attribute name="content" value="/WEB-INF/jsp/admin/terminales/editar_terminal.jsp" />
 		</definition>
 
 		<!--          -->
@@ -57,7 +61,18 @@
 			<put-attribute name="left-menu" value="/WEB-INF/jsp/extranet/sections/left-menu.jsp" />
 			<put-attribute name="footer" value="/WEB-INF/jsp/extranet/sections/footer.jsp" />
 		</definition>
-		
+
 		<definition name="home" extends="mainLayout" />
-	
+
+		<!-- Misión, Visión y Objetivos Layout  -->
+		<definition name="usefulLinks" template="/WEB-INF/jsp/extranet/usefulLinks.jsp">
+			<put-attribute name="header" value="/WEB-INF/jsp/extranet/sections/header.jsp" />
+			<put-attribute name="menu" value="/WEB-INF/jsp/extranet/sections/menu.jsp" />
+			<put-attribute name="footer" value="/WEB-INF/jsp/extranet/sections/footer.jsp" />
+		</definition>
+
+		<definition name="vision" extends="usefulLinks" />
+		<definition name="mision" extends="usefulLinks" />
+		<definition name="objetivos" extends="usefulLinks" />
+
 </tiles-definitions>

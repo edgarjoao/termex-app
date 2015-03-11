@@ -10,11 +10,11 @@
 	</a>
 </h1>
 <div class="basket">
-	<a href="javascript:void(0);">
+	<a href="${pageContext.request.contextPath}/es/home.html">
 		<img src="${pageContext.request.contextPath}/images/mexico.png" alt="" /> Español
 	</a>
 	&nbsp;
-	<a href="javascript:void(0);">
+	<a href="${pageContext.request.contextPath}/en/home.html">
 		<img src="${pageContext.request.contextPath}/images/united-states.png" alt="" /> Inglés
 	</a>
 </div>
