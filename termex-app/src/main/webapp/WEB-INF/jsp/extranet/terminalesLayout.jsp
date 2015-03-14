@@ -33,7 +33,8 @@
 		<tiles:insertAttribute name="left-menu" />
     </div>
     <div class="main_content">
-        <tiles:insertAttribute name="main-content" />
+		<!-- TERMINALES -->
+		<tiles:insertAttribute name="terminals-section" />
     </div><!-- end main content -->
 
     <div class="right_column">

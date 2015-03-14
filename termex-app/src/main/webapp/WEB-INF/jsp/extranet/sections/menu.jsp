@@ -9,5 +9,5 @@
   <li class="top"><a href="${pageContext.request.contextPath}/es/mision.html" class="top_link"><span>Misión</span></a></li>
   <li class="top"><a href="${pageContext.request.contextPath}/es/vision.html" class="top_link"><span>Visión</span></a></li>
   <li class="top"><a href="${pageContext.request.contextPath}/es/objetivos.html" class="top_link"><span>Objetivos</span></a></li>
-  <li class="top"><a href="02-Orange-05-Customer-Basket.html" class="top_link"><span>Contáctanos</span></a></li>
+  <li class="top"><a href="${pageContext.request.contextPath}/es/contactanos.html" class="top_link"><span>Contáctanos</span></a></li>
 </ul>

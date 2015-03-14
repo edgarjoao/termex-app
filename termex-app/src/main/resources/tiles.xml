@@ -75,4 +75,26 @@
 		<definition name="mision" extends="usefulLinks" />
 		<definition name="objetivos" extends="usefulLinks" />
 
+		<definition name="contactanos" template="/WEB-INF/jsp/extranet/contactanos.jsp">
+			<put-attribute name="header" value="/WEB-INF/jsp/extranet/sections/header.jsp" />
+			<put-attribute name="menu" value="/WEB-INF/jsp/extranet/sections/menu.jsp" />
+			<put-attribute name="footer" value="/WEB-INF/jsp/extranet/sections/footer.jsp" />
+		</definition>
+
+		<definition name="terminales" template="/WEB-INF/jsp/extranet/terminalesLayout.jsp">
+			<put-attribute name="header" value="/WEB-INF/jsp/extranet/sections/header.jsp" />
+			<put-attribute name="menu" value="/WEB-INF/jsp/extranet/sections/menu.jsp" />
+			<put-attribute name="left-menu" value="/WEB-INF/jsp/extranet/sections/left-menu.jsp" />
+			<put-attribute name="terminals-section" value="/WEB-INF/jsp/extranet/sections/terminals-section.jsp" />
+			<put-attribute name="footer" value="/WEB-INF/jsp/extranet/sections/footer.jsp" />
+		</definition>
+
+		<definition name="detalle" template="/WEB-INF/jsp/extranet/detalleLayout.jsp">
+			<put-attribute name="header" value="/WEB-INF/jsp/extranet/sections/header.jsp" />
+			<put-attribute name="menu" value="/WEB-INF/jsp/extranet/sections/menu.jsp" />
+			<put-attribute name="left-menu" value="/WEB-INF/jsp/extranet/sections/left-menu.jsp" />
+			<put-attribute name="detalle-section" value="/WEB-INF/jsp/extranet/sections/detalle-section.jsp" />
+			<put-attribute name="footer" value="/WEB-INF/jsp/extranet/sections/footer.jsp" />
+		</definition>
+
 </tiles-definitions>

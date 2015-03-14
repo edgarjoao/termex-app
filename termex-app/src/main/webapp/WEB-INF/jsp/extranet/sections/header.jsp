@@ -5,7 +5,7 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
 <h1 class="logo">
-	<a href="02-Orange-01-Home-Page.html">
+	<a href="${pageContext.request.contextPath}/es/home.html">
 	<img src="${pageContext.request.contextPath}/images/termex-2.png" width="175" height="80" />
 	</a>
 </h1>

@@ -9,6 +9,6 @@
 	<li>| <a href="${pageContext.request.contextPath}/es/mision.html">Misión</a></li>
 	<li>| <a href="${pageContext.request.contextPath}/es/vision.html">Visión</a></li>
 	<li>| <a href="${pageContext.request.contextPath}/es/objetivos.html">Objetivos</a></li>
-	<li> | <a href="javascript:void(0);">Contáctanos</a></li>
+	<li> | <a href="${pageContext.request.contextPath}/es/contactanos.html">Contáctanos</a></li>
 </ul>
 <div>&copy; Copyright 2015 TER-MEX </div>

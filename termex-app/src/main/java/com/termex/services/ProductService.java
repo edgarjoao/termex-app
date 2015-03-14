@@ -26,7 +26,7 @@ import com.termex.web.views.ProductsForm;
 public class ProductService {
 
 	private final Logger logger = LoggerFactory.getLogger(ProductService.class);
-	
+
 	@Autowired
 	private ProductDAO productDAO;
 	@Autowired
@@ -34,103 +34,119 @@ public class ProductService {
 
 	@Transactional(propagation=Propagation.REQUIRED, rollbackFor=TermexException.class)
 	public void addProduct(ProductView productView) throws ProductException, CategoryException{
-		
+
 		try{
-			
-			ProductConverter converter = new ProductConverter();			
-			Product product = converter.convertProductViewToEntity(productView);			
-			Category category = categoryDAO.getCategoryById(productView.getCategoryId());			
-			
-			product.setCategory(category);			
+
+			ProductConverter converter = new ProductConverter();
+			Product product = converter.convertProductViewToEntity(productView);
+			Category category = categoryDAO.getCategoryById(productView.getCategoryId());
+
+			product.setCategory(category);
 			productDAO.addProduct(product);
-			
-			for(ProductDetailView pd : productView.getProductDetails()){				
+
+			for(ProductDetailView pd : productView.getProductDetails()){
 				productDAO.addProductDetail(converter.convertProductDetViewToEntity(
 						product.getIdProd(), pd.getLanguageId(), pd.getDescription()));
 			}
-			
+
 		}catch(CategoryException cException){
 			throw cException;
-		}catch(ProductException pException){	
+		}catch(ProductException pException){
 			throw pException;
 		}catch(Exception e){
 			logger.error("Product SERVICE Error ",e);
-			ProductException categoryException = new ProductException(e, 
+			ProductException categoryException = new ProductException(e,
 					ProductException.LAYER_DAO, ProductException.ACTION_INSERT);
 			throw categoryException;
-		}		
+		}
 	}
-	
+
 	public List<ProductView> getProductViews() throws ProductException {
 		try{
 			ProductConverter converter = new ProductConverter();
-			List<ProductView> productViews = new ArrayList<ProductView>();			
+			List<ProductView> productViews = new ArrayList<ProductView>();
 			for(Product product : productDAO.getProducts()){
 				productViews.add(converter.convertProductEntityToView(product));
-			}			
-			return productViews;			
-		}catch(ProductException pException){	
+			}
+			return productViews;
+		}catch(ProductException pException){
 			throw pException;
 		}catch(Exception e){
 			logger.error("Product SERVICE Error ",e);
-			ProductException categoryException = new ProductException(e, 
+			ProductException categoryException = new ProductException(e,
 					ProductException.LAYER_DAO, ProductException.ACTION_SELECT);
 			throw categoryException;
-		}		
+		}
 	}
-	
+
 	public ProductView getProductViewById(int productId) throws ProductException{
 		try{
 			ProductConverter converter = new ProductConverter();
 			ProductView productView = converter.convertProductEntityToView(
 					productDAO.getProductById(productId));
 			return productView;
-		}catch(ProductException pException){	
+		}catch(ProductException pException){
 			throw pException;
 		}catch(Exception e){
 			logger.error("Product SERVICE Error ",e);
-			ProductException categoryException = new ProductException(e, 
+			ProductException categoryException = new ProductException(e,
 					ProductException.LAYER_DAO, ProductException.ACTION_SELECT);
 			throw categoryException;
 		}
 	}
-	
+
 	public void deleteProductById(int productId) throws ProductException {
 		try{
 			productDAO.deleteProduct(productId);
-		}catch(ProductException pException){	
+		}catch(ProductException pException){
 			throw pException;
 		}catch(Exception e){
 			logger.error("Product SERVICE Error ",e);
-			ProductException categoryException = new ProductException(e, 
+			ProductException categoryException = new ProductException(e,
 					ProductException.LAYER_DAO, ProductException.ACTION_DELETE);
 			throw categoryException;
 		}
 	}
-	
+
 	public byte[] getProductImageById(int productId) throws ProductException {
 		try{
 			return productDAO.getProductImage(productId);
-		}catch(ProductException pException){	
+		}catch(ProductException pException){
 			throw pException;
 		}
 	}
-	
+
 	public ProductsForm getProductsForm(String lang, String catId, int offset) throws ProductException {
 		ProductsForm form = new ProductsForm();
-		/*
+
 		try{
-			
-		}catch(ProductException pException){	
+
+			int hitsTmp = 10;
+			if(offset != 0){
+				hitsTmp  = (10 + offset);
+			}
+
+			form.setCategoryId(Integer.parseInt(catId));
+
+			ProductConverter converter = new ProductConverter();
+			List<Product> products = productDAO.getListOfProducts(lang, Integer.parseInt(catId), offset);
+
+			int totalHits = productDAO.count(lang, Integer.parseInt(catId), offset);
+
+			form.setTotalHits(totalHits);
+
+
+
+		}catch(ProductException pException){
 			throw pException;
 		}catch(Exception e){
 			logger.error("Product SERVICE Error ",e);
-			ProductException categoryException = new ProductException(e, 
+			ProductException categoryException = new ProductException(e,
 					ProductException.LAYER_DAO, ProductException.ACTION_DELETE);
 			throw categoryException;
-		}*/
-		
+		}
+
 		return null;
 	}
-	
+
 }
