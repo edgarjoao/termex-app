@@ -14,11 +14,11 @@
 <link href="${pageContext.request.contextPath}/css/nav-menus.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/lightbox.css" />
 
-
 <script src="${pageContext.request.contextPath}/js/jquery-1.11.0.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/lightbox.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/stuHover.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.flow.1.2.auto.js"></script>
+
 </head>
 <body>
 
