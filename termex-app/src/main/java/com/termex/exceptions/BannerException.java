@@ -6,15 +6,14 @@ import com.termex.common.exception.TermexException;
  * @author rioslore
  *
  */
-public class CategoryException extends TermexException {
+public class BannerException extends TermexException{
 
 	/**
 	 *
 	 */
-	private static final long serialVersionUID = 5022934209896291364L;
-
+	private static final long serialVersionUID = 3404492668441013696L;
 	/** Code Identifier Module */
-	private static final String MODULE_EXCEPTION_ERR = "03";
+	private static final String MODULE_EXCEPTION_ERR = "04";
 	/** Layer Code Level */
 	private String prosLevel	=	null;
 	/** Handler Code Action */
@@ -22,13 +21,13 @@ public class CategoryException extends TermexException {
 	/** Code Message constructor */
 	StringBuffer eCode;
 
-	public CategoryException(Exception exception, String level, String action){
+	public BannerException(Exception exception, String level, String action){
 		super(exception);
 		this.prosLevel = level;
 		this.prosAction = action;
 	}
 
-	public CategoryException(String message, String level, String action){
+	public BannerException(String message, String level, String action){
 		super(message);
 		this.prosLevel = level;
 		this.prosAction = action;
@@ -51,4 +50,5 @@ public class CategoryException extends TermexException {
 		eCode.append(this.prosLevel);
 		return eCode.toString();
 	}
+
 }

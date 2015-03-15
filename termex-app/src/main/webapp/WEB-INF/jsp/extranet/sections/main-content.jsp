@@ -21,20 +21,28 @@ $(document).ready(function(){
 </script>
 <div class="jflow-content-slider">
 	<div id="slides">
-	  <div class="slide-wrapper"><img src="images/banner-01.jpg" alt="" width="554" height="288"/></div>
-	  <div class="slide-wrapper"><img src="images/banner-02.jpg" alt="" width="554" height="288"/></div>
-	  <div class="slide-wrapper"><img src="images/banner-03.jpg" alt="" width="554" height="288"/></div>
-	  <div class="slide-wrapper"><img src="images/banner-04.jpg" alt="" width="554" height="288"/></div>
+		<c:forEach items="${banners}" var="row">
+		  <div class="slide-wrapper"><img src="${pageContext.request.contextPath}/banner/${row.id.idBan}/imagen.html" alt="" width="554" height="288"/></div>
+	  	</c:forEach>
 	</div>
 	<div id="myController">
-	  <div class="quick_nav"><span class="jFlowPrev"><img src="${pageContext.request.contextPath}/images/jFlowPrev-arrow.gif" width="20" height="18" alt="Prev" /></span> <span class="jFlowControl">1</span> <span class="jFlowControl">2</span> <span class="jFlowControl">3</span> <span class="jFlowControl">4</span> <span class="jFlowNext"><img src="${pageContext.request.contextPath}/images/jFlowNext_arrow.gif" width="20" height="18" alt="Next" /></span></div>
-	  <div class="collection_name"><a href="02-Orange-03-Products-List.html">White Sofa Collection</a></div>
+	  <div class="quick_nav">
+	  	<span class="jFlowPrev"><img src="${pageContext.request.contextPath}/images/jFlowPrev-arrow.gif" width="20" height="18" alt="Prev" /></span>
+	  	<span class="jFlowControl">1</span>
+	  	<span class="jFlowControl">2</span>
+	  	<span class="jFlowControl">3</span>
+	  	<span class="jFlowControl">4</span>
+	  	<span class="jFlowNext"><img src="${pageContext.request.contextPath}/images/jFlowNext_arrow.gif" width="20" height="18" alt="Next" /></span>
+	  </div>
+	  <div class="collection_name">
+	  	<!--  	<a href="02-Orange-03-Products-List.html">White Sofa Collection</a>-->
+	  	</div>
 	</div>
 	<div class="clear"></div>
 </div>
 
  <div class="products_box featured">
-   <h2 class="box_title"><a href="02-Orange-03-Products-List.html"><span>Browse Collections</span></a> Featured Collections</h2>
+   <h2 class="box_title">Terminales</h2>
    <div class="products_content">
      <div class="top_gradient clearfix">
        <div class="asinItem">

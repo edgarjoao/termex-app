@@ -4,6 +4,20 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
+<script type="text/javascript">
+$(document).ready(function(){
+
+	var terminales = [
+		'Terminales de Cobre', 'Terminales de Aluminio', 'Pinzas', 'Mangueras', 'Audio'
+	];
+
+    $("#searchId").autocomplete({
+       source:[terminales]
+    });
+
+});
+</script>
+
 <h1 class="logo">
 	<a href="${pageContext.request.contextPath}/es/home.html">
 	<img src="${pageContext.request.contextPath}/images/termex-2.png" width="175" height="80" />
@@ -23,7 +37,7 @@
 
 <div id="search">
     <form id="searchform" name="searchform" action="02-Orange-01-Home-Page.html">
-    <input name="search" type="text" tabindex="1" onblur="if (this.value==''){this.value='enter a keyword or an item #'};" onfocus="if(this.value=='enter a keyword or an item #'){this.value=''};" value="enter a keyword or an item #" />
+    <input name="search" id="searchId" type="text" tabindex="1" onblur="if (this.value==''){this.value='enter a keyword or an item #'};" onfocus="if(this.value=='enter a keyword or an item #'){this.value=''};" value="enter a keyword or an item #" />
     <input name="search" type="submit" value="" class="button" />
   </form>
 </div>

@@ -12,7 +12,10 @@
 <title>TERMEX - Terminales de México</title>
 <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet" type="text/css" />
 <link href="${pageContext.request.contextPath}/css/nav-menus.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-1.3.2.min.js"></script>
+<link href="${pageContext.request.contextPath}/css/jquery.autocomplete.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.autocomplete.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/stuHover.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.flow.1.2.auto.js"></script>
 

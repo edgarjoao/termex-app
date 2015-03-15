@@ -194,7 +194,7 @@ public class ProductDAO extends HibernateDaoSupport {
 		try{
 			StringBuilder sql = new StringBuilder();
 			sql.append("SELECT p FROM ProductDetail p ")
-			.append("WHERE  p.id.idProd = :productId ")
+			.append("WHERE p.id.idProd = :productId ")
 			.append("AND p.language.idLang = :languageId");
 
 			ProductDetail productDetail = (ProductDetail) getSession().createQuery(sql.toString())
