@@ -14,8 +14,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.termex.daos.BannerDAO;
+import com.termex.daos.ProductDAO;
+import com.termex.db.model.ProductDetail;
 import com.termex.exceptions.BannerException;
 import com.termex.exceptions.CategoryException;
+import com.termex.exceptions.ProductException;
 import com.termex.services.CategoryService;
 import com.termex.utils.LanguageUtils;
 import com.termex.web.views.CategoryDetailView;
@@ -31,6 +34,9 @@ public class HomeController {
 	@Autowired
 	private BannerDAO bannerDAO;
 
+	@Autowired
+	private ProductDAO productDAO;
+
 	@RequestMapping(value = "{language}/home", method = RequestMethod.GET)
 	public String goLogin(@PathVariable("language") String language, ModelMap modelMap, HttpServletRequest request) {
 
@@ -43,9 +49,13 @@ public class HomeController {
 			modelMap.put("categories", categorryDetails);
 			modelMap.put("lang", language);
 			modelMap.put("banners", bannerDAO.getBannerDetailList(lang));
+			List<ProductDetail> productDetails = productDAO.getProductDetailsRandom(lang);
+			modelMap.put("terminals_random", productDetails);
 		} catch (CategoryException e) {
 			e.printStackTrace();
 		} catch (BannerException e) {
+			e.printStackTrace();
+		} catch (ProductException e) {
 			e.printStackTrace();
 		}
 

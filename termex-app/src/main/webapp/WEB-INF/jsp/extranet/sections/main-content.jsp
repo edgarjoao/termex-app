@@ -45,22 +45,17 @@ $(document).ready(function(){
    <h2 class="box_title">Terminales</h2>
    <div class="products_content">
      <div class="top_gradient clearfix">
-       <div class="asinItem">
-         <div class="prodImage"><a href="02-Orange-04-Products-Details.html"><img src="images/terminales/terminal4.png" alt="" /></a></div>
-         <h3><a href="02-Orange-04-Products-Details.html">Warwick Furniture Collection in White - Linon Furniture </a><strong></strong></h3>
-         <div class="rating starts5">&nbsp;</div>
-       </div>
-       <div class="asinItem">
-         <div class="prodImage"><a href="02-Orange-04-Products-Details.html"><img src="images/terminales/terminal5.png" alt="" /></a></div>
-         <h3><a href="02-Orange-04-Products-Details.html">Eclipse Furniture Collection in Espresso - Nexera Furniture</a></h3>
-         <div class="rating starts3">&nbsp;</div>
-       </div>
-       <div class="asinItem last">
-         <div class="prodImage"><a href="02-Orange-04-Products-Details.html"><img src="images/terminales/terminal6.png" alt="" /></a></div>
-         <h3><a href="02-Orange-04-Products-Details.html">Stonegate Collection - Powell Furniture </a><strong></strong></h3>
-         <div class="rating starts0">&nbsp;</div>
-       </div>
-       <div class="row end">&nbsp;</div>
-     </div>
+		<c:forEach var="row" items="${terminals_random}" varStatus="loop">
+			<div class="asinItem <c:if test="${loop.index % 3 == 0}">last</c:if>">
+				  <div class="prodImage">
+					<a data-lightbox="roadtrip" data-title="${row.proddDescription}" href="${pageContext.request.contextPath}/${row.id.idProd}/imagen.html">
+						<img src="${pageContext.request.contextPath}/${row.id.idProd}/detalle.html" alt="" />
+					</a>
+					<h3><a href="${pageContext.request.contextPath}/${lang}/${row.id.idProd}/detalle.html">${row.product.prodCode}</a></h3>
+				  </div>
+			</div>
+			<c:if test="${loop.last}"><div class="row end">&nbsp;</div></c:if>
+		</c:forEach>
+	</div>
    </div>
  </div>

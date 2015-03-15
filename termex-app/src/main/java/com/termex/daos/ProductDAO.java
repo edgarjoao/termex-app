@@ -210,4 +210,25 @@ public class ProductDAO extends HibernateDaoSupport {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
+	public List<ProductDetail> getProductDetailsRandom(int lang) throws ProductException{
+		try{
+			StringBuilder sql = new StringBuilder();
+			sql.append("SELECT p FROM ProductDetail p ")
+			.append(" WHERE p.language.idLang = :lang ")
+			.append("ORDER BY RAND()");
+
+			Query query = getSession().createQuery(sql.toString()).setMaxResults(6)
+					.setParameter("lang", lang);
+
+			return query.list();
+
+		}catch(Exception e){
+			logger.error("Product DAO Error ",e);
+			ProductException categoryException = new ProductException(e,
+					ProductException.LAYER_DAO, ProductException.ACTION_SELECT);
+			throw categoryException;
+		}
+	}
+
 }
