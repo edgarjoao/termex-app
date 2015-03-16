@@ -97,4 +97,6 @@
 			<put-attribute name="footer" value="/WEB-INF/jsp/extranet/sections/footer.jsp" />
 		</definition>
 
+		<definition name="catalogo_online" template="/WEB-INF/jsp/catalog/catalogo.jsp" />
+
 </tiles-definitions>

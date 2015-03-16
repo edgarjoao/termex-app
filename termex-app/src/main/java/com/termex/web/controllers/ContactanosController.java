@@ -18,6 +18,12 @@ public class ContactanosController {
 	@RequestMapping(value = "{language}/contactanos", method = RequestMethod.GET)
 	public String goContactanos(@PathVariable("language") String language, ModelMap modelMap, HttpServletRequest request) {
 
+		return "contactanos";
+	}
+
+
+	@RequestMapping(value = "contactanos", method = RequestMethod.POST)
+	public String contactanos(@PathVariable("language") String language, ModelMap modelMap, HttpServletRequest request) {
 
 		return "contactanos";
 	}

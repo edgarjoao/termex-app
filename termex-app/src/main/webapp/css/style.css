@@ -2,7 +2,7 @@
 @import url("reset.css");
 /* Background Properties */
 body {
-	
+
 }
 /* Website Default Text & Text Color */
 body, th, td, input, selecte, textarea {
@@ -107,7 +107,7 @@ h1.logo a {
 	letter-spacing: -0.5px;
 	color: #111111;
 }
-.basket a {	
+.basket a {
 	width: 112px;
 	height: 16px;
 	/* TERMEX
@@ -367,7 +367,7 @@ h1.logo a {
 	/*
 	background: #f7941d url(../images/featured-box_bg.gif) repeat-x left bottom;
 	*/
-	background-color :#fa843d;	
+	background-color :#fa843d;
 	border-bottom: 0;
 }
 .featured h2.box_title a, .featured h2.box_title a:hover {
@@ -399,7 +399,7 @@ h1.logo a {
 	margin-bottom: 20px;
 }
 .product_guide h2.box_title {
-	background: url(../images/product_guide_headline_bg.png) no-repeat left top;
+	background: url(../images/product_guide_headline_bg.jpg) no-repeat left top;
 	height: 60px;
 }
 .product_guide p {
@@ -903,7 +903,7 @@ a.silver_btn, a.silver_btn:hover { /* this style is for a tags*/
 	padding-bottom: 8px;
 	padding-top: 16px;
 }
-.basket_list h2 a, 
+.basket_list h2 a,
 .basket_list h2 a:hover {
 	color: #252525;
 	text-decoration: none;

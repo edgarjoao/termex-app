@@ -13,8 +13,10 @@
 <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet" type="text/css" />
 <link href="${pageContext.request.contextPath}/css/nav-menus.css" rel="stylesheet" type="text/css" />
 <link href="${pageContext.request.contextPath}/css/jquery.autocomplete.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/lightbox.css" />
 
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/lightbox.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.autocomplete.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/stuHover.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.flow.1.2.auto.js"></script>
@@ -43,7 +45,7 @@
 
       <div class="product_guide"> <!-- Go to Book Catalog -->
         <h2 class="box_title"><span>Product Guidelines</span></h2>
-        <p>Please consider going over our <a href="02-Orange-03-Products-List.html">product guidelines</a> before you purchase any item from our store.</p>
+        <p>Please consider going over our <a href="${pageContext.request.contextPath}/catalogo_online.html">product guidelines</a> before you purchase any item from our store.</p>
       </div>
 
       <div class="store_locator"><!-- Go To Map -->
