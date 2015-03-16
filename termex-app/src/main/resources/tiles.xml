@@ -78,6 +78,13 @@
 		<definition name="contactanos" template="/WEB-INF/jsp/extranet/contactanos.jsp">
 			<put-attribute name="header" value="/WEB-INF/jsp/extranet/sections/header.jsp" />
 			<put-attribute name="menu" value="/WEB-INF/jsp/extranet/sections/menu.jsp" />
+			<put-attribute name="contacto-form" value="/WEB-INF/jsp/extranet/sections/contacto-form.jsp" />
+			<put-attribute name="footer" value="/WEB-INF/jsp/extranet/sections/footer.jsp" />
+		</definition>
+
+		<definition name="mapa" template="/WEB-INF/jsp/extranet/mapa.jsp">
+			<put-attribute name="header" value="/WEB-INF/jsp/extranet/sections/header.jsp" />
+			<put-attribute name="menu" value="/WEB-INF/jsp/extranet/sections/menu.jsp" />
 			<put-attribute name="footer" value="/WEB-INF/jsp/extranet/sections/footer.jsp" />
 		</definition>
 
