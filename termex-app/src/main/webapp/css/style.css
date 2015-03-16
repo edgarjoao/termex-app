@@ -351,6 +351,8 @@ h1.logo a {
 .asinItem h3 a, .asinItem h3 a:hover {
 	text-decoration: none;
 	color: #252525;
+	font-style: italic;
+	font-weight: bold;
 }
 .asinItem h3 a strong, .asinItem h3 a:hover strong {
 	color: #898989;

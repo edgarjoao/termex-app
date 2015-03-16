@@ -2,9 +2,11 @@ package com.termex.daos;
 
 import java.util.List;
 
+import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Restrictions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -202,6 +204,24 @@ public class ProductDAO extends HibernateDaoSupport {
 					.setParameter("languageId", languageId).uniqueResult();
 
 			return productDetail;
+		}catch(Exception e){
+			logger.error("Product DAO Error ",e);
+			ProductException categoryException = new ProductException(e,
+					ProductException.LAYER_DAO, ProductException.ACTION_SELECT);
+			throw categoryException;
+		}
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<ProductDetail> searchProductDetail(String queryTerm, int languageId) throws ProductException{
+		try{
+
+			Criteria criteria = getSession().createCriteria(ProductDetail.class)
+					.add(Restrictions.eq("language.idLang", languageId))
+					.add(Restrictions.like("proddDescription", "%"+queryTerm+"%"));
+					//.add(Restrictions.sqlRestriction("lower({alias}.proddDescription) like lower(?)", "%"+queryTerm+"%", Hibernate.STRING));
+
+			return criteria.list();
 		}catch(Exception e){
 			logger.error("Product DAO Error ",e);
 			ProductException categoryException = new ProductException(e,

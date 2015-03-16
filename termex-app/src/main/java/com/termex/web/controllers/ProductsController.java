@@ -1,5 +1,6 @@
 package com.termex.web.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -14,6 +15,8 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.termex.daos.CategoryDAO;
 import com.termex.daos.ProductDAO;
@@ -79,6 +82,51 @@ public class ProductsController {
 		}
 
 		return "terminales";
+	}
+
+	@RequestMapping(value = "{language}/buscar_productos", method = RequestMethod.GET)
+	public String searchProductos(@PathVariable("language") String language,@RequestParam("query") String queryTerm,
+			ModelMap modelMap, HttpServletRequest request, HttpSession httpSession) throws ProductException, CategoryException {
+
+		try {
+			List<CategoryDetailView> categorryDetails = categoryService.getCategoryViewListByLanguage(language);
+			int lang = LanguageUtils.getLanguageId(language);
+			modelMap.put("nombreTerminal", lang ==1?"Terminales":"Terminals");
+			modelMap.put("categories", categorryDetails);
+			modelMap.put("lang", language);
+			modelMap.put("queryTerm", queryTerm);
+
+			modelMap.put("SEARCH_DESCRIPTION", "Resultados de la búsqueda \"" + queryTerm + "\"");
+
+			List<ProductDetail> productDetail = productDAO.searchProductDetail(queryTerm, lang);
+			modelMap.put("terminals", productDetail);
+
+		} catch (ProductException pException) {
+			httpSession.setAttribute(CUSTOM_EXCEPTION, pException);
+			throw pException;
+		} catch (CategoryException cException) {
+			httpSession.setAttribute(CUSTOM_EXCEPTION, cException);
+			throw cException;
+		} catch(Exception e){
+			ProductException cException = new ProductException(e,
+					ProductException.LAYER_CONTROLLER, ProductException.ACTION_SELECT);
+			logger.error("Ha ocurrido un error Producto Controller {}", e);
+			httpSession.setAttribute(CUSTOM_EXCEPTION, cException);
+			throw cException;
+		}
+
+		return "buscar_productos";
+	}
+
+	@RequestMapping(value = "{language}/autocomplete", method = RequestMethod.GET)
+	public @ResponseBody List<String> autocomplete(@PathVariable("language") String language,
+			@RequestParam("queryTerm") String queryTerm, HttpServletResponse httpResponse) {
+		List<String> response = new ArrayList<String>();
+		response.add("erminales de Cobre");
+		response.add("Terminales de Aluminio");
+		response.add("Pinzas");
+		httpResponse.setStatus(HttpServletResponse.SC_OK);
+		return response;
 	}
 
 	@RequestMapping(value = "{language}/{productId}/detalle", method = RequestMethod.GET)

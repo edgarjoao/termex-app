@@ -14,8 +14,8 @@
 <link href="${pageContext.request.contextPath}/css/nav-menus.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/lightbox.css" />
 
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-1.11.0.min.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/lightbox.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/jquery-1.11.0.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/lightbox.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/stuHover.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.flow.1.2.auto.js"></script>
 
@@ -36,42 +36,22 @@
 		<tiles:insertAttribute name="left-menu" />
     </div>
     <div class="main_content">
-        <tiles:insertAttribute name="main-content" />
+		<!-- TERMINALES -->
+		<tiles:insertAttribute name="search-section" />
     </div><!-- end main content -->
 
     <div class="right_column">
 
       <div class="product_guide"> <!-- Go to Book Catalog -->
         <h2 class="box_title"><span>Product Guidelines</span></h2>
-        <p>Consulta nuestro <a href="${pageContext.request.contextPath}/catalogo_online.html">Catálogo Online</a>.</p>
+        <p>Please consider going over our <a href="02-Orange-03-Products-List.html">product guidelines</a> before you purchase any item from our store.</p>
       </div>
 
       <div class="store_locator"><!-- Go To Map -->
-        <h2 class="box_title"><span>Localizanos</span></h2>
-        <p>Ubicación. <a href="${pageContext.request.contextPath}/es/mapa.html">ver mapa</a></p>
+        <h2 class="box_title"><span>Store Locator</span></h2>
+        <p>Use our Store Locator to find a store near you. <a href="02-Orange-03-Products-List.html">click here</a></p>
       </div>
-	 <%--
-      <div class="products_box">
-        <h2 class="box_title">Best Sellers</h2>
-        <div class="products_content clearfix">
-          <div class="asinItem">
-            <div class="prodImage"><a href="02-Orange-04-Products-Details.html"><img src="images/dummy_pixel.gif" alt="" /></a></div>
-            <h3><a href="02-Orange-04-Products-Details.html">Cras convallis Lamp <strong>($30)</strong></a></h3>
-          </div>
-          <div class="asinItem">
-            <div class="prodImage"><a href="02-Orange-04-Products-Details.html"><img src="images/dummy_pixel.gif" alt="" /></a></div>
-            <h3><a href="02-Orange-04-Products-Details.html">Nam viverra metus eget est Chair <strong>($52)</strong></a></h3>
-          </div>
-          <div class="asinItem">
-            <div class="prodImage"><a href="02-Orange-04-Products-Details.html"><img src="images/dummy_pixel.gif" alt="" /></a></div>
-            <h3><a href="02-Orange-04-Products-Details.html">Office Desk <strong>($102)</strong></a></h3>
-          </div>
-          <div class="row end">&nbsp;</div>
-        </div>
-      </div>
-       --%>
     </div>
-
   </div>
   <div class="footer">
 	<tiles:insertAttribute name="footer" />

@@ -45,6 +45,7 @@
 		</c:forEach>
    </ul>
  </div>
+ <%--
  <div class="box newsletter_box">
    <h2>Newsletter</h2>
    <p>Sign up for our weekly newsletter and stay up-to-date with the latest offers, and newest products.</p>
@@ -55,3 +56,4 @@
      </div>
    </form>
  </div>
+  --%>

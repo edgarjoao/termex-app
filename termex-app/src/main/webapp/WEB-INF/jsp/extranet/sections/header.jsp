@@ -7,14 +7,6 @@
 <script type="text/javascript">
 $(document).ready(function(){
 
-	var terminales = [
-		'Terminales de Cobre', 'Terminales de Aluminio', 'Pinzas', 'Mangueras', 'Audio'
-	];
-
-    $("#searchId").autocomplete({
-       source:[terminales]
-    });
-
 });
 </script>
 
@@ -36,8 +28,8 @@ $(document).ready(function(){
 <div class="top_banner"><a href="javascript:void(0);"><img src="${pageContext.request.contextPath}/images/top_banner.png" width="218" height="44" alt="" /></a></div>
 
 <div id="search">
-    <form id="searchform" name="searchform" action="02-Orange-01-Home-Page.html">
-    <input name="search" id="searchId" type="text" tabindex="1" onblur="if (this.value==''){this.value='enter a keyword or an item #'};" onfocus="if(this.value=='enter a keyword or an item #'){this.value=''};" value="enter a keyword or an item #" />
-    <input name="search" type="submit" value="" class="button" />
-  </form>
+    <form id="searchform" name="searchform" action="${pageContext.request.contextPath}/es/buscar_productos.html" autocomplete="off" method="get">
+	    <input name="query" id="searchId" type="text" tabindex="1" value="${queryTerm}" />
+	    <input name="search" type="submit" value="" readonly="readonly" class="button" />
+	</form>
 </div>
