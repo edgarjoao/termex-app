@@ -394,15 +394,12 @@ INSERT INTO product_detail(ID_PROD, ID_LANG, PRODD_DESCRIPTION) VALUES(110, 2, '
 -- Banners
 INSERT INTO banner (ID_BAN, BAN_STATUS, BAN_CREATED_DATE, BAN_IMG_NAME, BAN_IMG_TYPE, BAN_IMG) VALUES(1, 'A', now(), 'Cable Armado','image/jpeg',LOAD_FILE('C:/termex_img/banner/cable_armado.jpg'));
 INSERT INTO banner (ID_BAN, BAN_STATUS, BAN_CREATED_DATE, BAN_IMG_NAME, BAN_IMG_TYPE, BAN_IMG) VALUES(2, 'A', now(), 'Prensa de Golpe','image/jpeg',LOAD_FILE('C:/termex_img/banner/prensa_de_golpe.jpg'));
-INSERT INTO banner (ID_BAN, BAN_STATUS, BAN_CREATED_DATE, BAN_IMG_NAME, BAN_IMG_TYPE, BAN_IMG) VALUES(3, 'A', now(), 'Cable Armado','image/jpeg',LOAD_FILE('C:/termex_img/banner/cable_armado.jpg'));
-INSERT INTO banner (ID_BAN, BAN_STATUS, BAN_CREATED_DATE, BAN_IMG_NAME, BAN_IMG_TYPE, BAN_IMG) VALUES(4, 'A', now(), 'Prensa de Golpe','image/jpeg',LOAD_FILE('C:/termex_img/banner/prensa_de_golpe.jpg'));
+INSERT INTO banner (ID_BAN, BAN_STATUS, BAN_CREATED_DATE, BAN_IMG_NAME, BAN_IMG_TYPE, BAN_IMG) VALUES(3, 'A', now(), 'Antisulfurante','image/jpeg',LOAD_FILE('C:/termex_img/banner/antisulfurantes.jpg'));
 
 -- Banner Title Description
 INSERT INTO banner_detail (ID_BAN, ID_LANG, BAND_TITLE) VALUES (1,1,'Cable Armado');
 INSERT INTO banner_detail (ID_BAN, ID_LANG, BAND_TITLE) VALUES (1,2,'Armored Cable');
 INSERT INTO banner_detail (ID_BAN, ID_LANG, BAND_TITLE) VALUES (2,1,'Prensa de Golpe');
 INSERT INTO banner_detail (ID_BAN, ID_LANG, BAND_TITLE) VALUES (2,2,'Punch Press');
-INSERT INTO banner_detail (ID_BAN, ID_LANG, BAND_TITLE) VALUES (3,1,'Cable Armado');
-INSERT INTO banner_detail (ID_BAN, ID_LANG, BAND_TITLE) VALUES (3,2,'Armored Cable');
-INSERT INTO banner_detail (ID_BAN, ID_LANG, BAND_TITLE) VALUES (4,1,'Prensa de Golpe');
-INSERT INTO banner_detail (ID_BAN, ID_LANG, BAND_TITLE) VALUES (4,2,'Punch Press');
+INSERT INTO banner_detail (ID_BAN, ID_LANG, BAND_TITLE) VALUES (3,1,'Antisulfurante');
+INSERT INTO banner_detail (ID_BAN, ID_LANG, BAND_TITLE) VALUES (3,2,'Antisulfurante');

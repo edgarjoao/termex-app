@@ -12,7 +12,7 @@ $(document).ready(function(){
 		selectedWrapper: "jFlowSelected",  // just pure text, no sign
 		auto: true,		//auto change slide, default true
 		width: "554px",
-		height: "228px",
+		height: "288px",
 		duration: 600,
 		prev: ".jFlowPrev", // must be class, use . sign
 		next: ".jFlowNext" // must be class, use . sign
@@ -28,10 +28,9 @@ $(document).ready(function(){
 	<div id="myController">
 	  <div class="quick_nav">
 	  	<span class="jFlowPrev"><img src="${pageContext.request.contextPath}/images/jFlowPrev-arrow.gif" width="20" height="18" alt="Prev" /></span>
-	  	<span class="jFlowControl">1</span>
-	  	<span class="jFlowControl">2</span>
-	  	<span class="jFlowControl">3</span>
-	  	<span class="jFlowControl">4</span>
+	  	<c:forEach items="${banners}" var="row" varStatus="loop">
+			<span class="jFlowControl">${loop.index + 1}</span>
+	  	</c:forEach>
 	  	<span class="jFlowNext"><img src="${pageContext.request.contextPath}/images/jFlowNext_arrow.gif" width="20" height="18" alt="Next" /></span>
 	  </div>
 	  <div class="collection_name">
