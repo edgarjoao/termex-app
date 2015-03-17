@@ -55,7 +55,7 @@ public class ContactanosController {
 			logger.error("Ha ocurrido un error al guardar el comentario ", e);
 		}
 
-		modelMap.put("SUCCESS_MESSAGE", "Gracias por contactarnos, nos pondremos en contacto con usted lo más pronto posible");
+		modelMap.put("SUCCESS_MESSAGE", "Gracias por tus comentarios, nos pondremos en contacto con usted lo más pronto posible");
 
 		return "contactanos";
 	}

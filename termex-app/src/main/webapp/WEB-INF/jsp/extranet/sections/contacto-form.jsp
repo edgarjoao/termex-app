@@ -1,6 +1,31 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#nombreId").focus();
+
+		$("#contactoForm").validate({
+			rules: {
+				nombre: "required",
+				correo: "required",
+				nombre: {
+					required: true,
+					minlength: 3
+				},
+				comentarios: {
+					required: true,
+					minlength: 5
+				}
+			},
+			messages: {
+				nombre: "Ingresa un nombre",
+				correo: "Ingresa un correo",
+				comentarios: "Favor de ingresar tus comentarios"
+			}
+		});
+	});
+</script>
 
 <h1 class="page_title">Contáctanos</h1>
     <div>&nbsp;</div>
@@ -11,7 +36,7 @@
 		</div>
 		<br />
 	</c:if>
-  <form action="${pageContext.request.contextPath}/${language}/contactanos.html" method="post" autocomplete="off">
+  <form action="${pageContext.request.contextPath}/${language}/contactanos.html" method="post" autocomplete="off" id="contactoForm">
 	<fieldset>
 		<p><label for="nombre">Nombre:</label></p> <input type="text" value="" id="nombreId" style="border: solid 1px #dcdcdc;padding: 4px;background: #fafbfb;width:360px;" name="nombre">
 		<p><label for="correo">Correo:</label></p> <input type="text" value="" id="correoId" style="border: solid 1px #dcdcdc;padding: 4px;background: #fafbfb;width:360px;" name="correo">
