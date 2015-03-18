@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:context="http://www.springframework.org/schema/context"	
+	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
 	xmlns:p="http://www.springframework.org/schema/p"
 	xmlns:util="http://www.springframework.org/schema/util"
-	xmlns:security="http://www.springframework.org/schema/security" 
+	xmlns:security="http://www.springframework.org/schema/security"
 	xmlns:tx="http://www.springframework.org/schema/tx"
 	xmlns:task="http://www.springframework.org/schema/task"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -14,18 +14,18 @@
             			http://www.springframework.org/schema/context/spring-context-3.0.xsd
             			http://www.springframework.org/schema/mvc
             			http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
-            			http://www.springframework.org/schema/security 
-            			http://www.springframework.org/schema/security/spring-security-3.0.xsd            			
-            			http://www.springframework.org/schema/util 
+            			http://www.springframework.org/schema/security
+            			http://www.springframework.org/schema/security/spring-security-3.0.xsd
+            			http://www.springframework.org/schema/util
             			http://www.springframework.org/schema/util/spring-util-3.0.xsd
-            			http://www.springframework.org/schema/task 
+            			http://www.springframework.org/schema/task
             			http://www.springframework.org/schema/task/spring-task-3.0.xsd
             			http://www.springframework.org/schema/tx
             			http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
-    
+
     <context:annotation-config />
 	<task:annotation-driven/>
-	<context:component-scan base-package="com.termex" />    			
+	<context:component-scan base-package="com.termex" />
 
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
     	<property name="driverClassName" value="${jdbc.driver}"/>
@@ -36,7 +36,7 @@
     	<property name="maxActive" value="-1" />
     	<property name="maxIdle" value="-1" />
     	<property name="maxWait" value="30000" />
-    </bean> 
+    </bean>
 
 	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"/>
@@ -60,5 +60,34 @@
       <property name="sessionFactory" ref="sessionFactory" />
    </bean>
 
-	
+   <!-- Authentication Manager -->
+	<security:authentication-manager>
+	  <security:authentication-provider>
+	  	<security:password-encoder hash="md5" />
+		<security:user-service>
+			<security:user name="admin" password="fb672c1dfe1834b6eddb5568a1c73423" authorities="ROLE_ADMIN"/>
+			<security:user name="termex" password="25f494bbe3db24f9b5877e950804f151" authorities="ROLE_ADMIN"/>
+		</security:user-service>
+	  </security:authentication-provider>
+	</security:authentication-manager>
+
+	<!-- HTTP Security -->
+	<security:http auto-config="true" use-expressions="true" >
+	<security:intercept-url pattern="/home.html" access="permitAll" />
+		<security:intercept-url pattern="/admin/login.html" access="permitAll" />
+		<security:intercept-url pattern="/admin/images/**" filters="none"/>
+		<security:intercept-url pattern="/admin/css/**" filters="none"/>
+		<security:intercept-url pattern="/admin/js/**" filters="none"/>
+		<security:intercept-url pattern="/admin/**" access="isAuthenticated()" />
+		<!-- Login Action -->
+		<security:access-denied-handler ref="termexAccessDeniedHandler" />
+		<security:form-login login-page="/admin/login.html" authentication-failure-url="/admin/login.html?login_error=1" authentication-success-handler-ref="TermexAuthSuccessHandler" />
+		<!-- Logout Action -->
+		<security:logout invalidate-session="true" logout-url="/admin/logout.html" logout-success-url="/admin/login.html"  />
+	</security:http>
+
+	<bean id="termexAccessDeniedHandler" class="com.termex.web.security.TermexAccessDeniedHandler" />
+	<bean id="TermexAuthSuccessHandler" class="com.termex.web.security.TermexAuthenticationSuccessHandler" />
+	<bean id="securityContextPersistenceFilter" class="org.springframework.security.web.context.SecurityContextPersistenceFilter"/>
+
 </beans>

@@ -28,7 +28,6 @@
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 
-	<!--
 	<filter>
 		<filter-name>springSecurityFilterChain</filter-name>
 		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
@@ -38,7 +37,6 @@
 		<filter-name>springSecurityFilterChain</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
-	 -->
 
 	<filter>
         <filter-name>encoding-filter</filter-name>
@@ -106,7 +104,7 @@
 
 	<error-page>
 		<exception-type>com.termex.common.exception.TermexException</exception-type>
-		<location>/WEB-INF/jsp/error.jsp</location>
+		<location>/WEB-INF/jsp/errors/error.jsp</location>
 	</error-page>
 
 	<welcome-file-list>

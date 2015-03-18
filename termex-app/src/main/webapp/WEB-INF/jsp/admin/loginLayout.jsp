@@ -12,35 +12,35 @@
 <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
 <script type="text/javascript" src="${pageContext.request.contextPath}/admin/js/jquery-1.8.3.js"></script>
 
-<script type="text/javascript">
-(function ($) {
-	$(document).ready(function(){		
-		$( "#username" ).focus();
-	}); 
-})(jQuery);
-</script>
-
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/admin/css/principal.css" />
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/admin/css/menu.css" />
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/admin/css/box.css" />
+
+<script type="text/javascript">
+(function ($) {
+	$(document).ready(function(){
+		$( "#username" ).focus();
+	});
+})(jQuery);
+</script>
 </head>
 <body>
 <!-- Begin Wrapper -->
-<div id="wrapper">  
+<div id="wrapper">
   <!-- End Header -->
   <!-- Begin Naviagtion -->
   <div id="header">
-  	<div id="logo_div" style="float: left; padding-left: 5%;">	
+  	<div id="logo_div" style="float: left; padding-left: 5%;">
 		<img width="175" height="80" src="${pageContext.request.contextPath}/admin/images/termex-logo.png">
 	</div>
-	
+
 	<div id="welcome_div" style="float: inherit; padding-top: 2%; padding-left: 35%">
 		<h2>Administración del Sistema</h2>
-	</div>	
-  </div> 
+	</div>
+  </div>
   <!-- End Naviagtion -->
   <!-- Begin Content -->
-  <div id="content"> 
+  <div id="content">
 		<tiles:insertAttribute name="login-box" />
   </div>
   <!-- End Content -->
