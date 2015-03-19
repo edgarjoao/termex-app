@@ -8,6 +8,7 @@
 <head>
 <title>Terminales de México</title>
 
+<meta name="robots" content="noindex,nofollow" />
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
 <script type="text/javascript" src="${pageContext.request.contextPath}/admin/js/jquery-1.8.3.js"></script>
@@ -15,16 +16,16 @@
 <script type="text/javascript">
 (function ($) {
 	$(document).ready(function(){
-		
+
 		var activeTab = $("#activeTab");
 		if(activeTab.length == 0){
-			$("#inicioId").addClass("active");			
+			$("#inicioId").addClass("active");
 		}else {
-			var tapId = activeTab.val(); 
+			var tapId = activeTab.val();
 			$("#" + tapId).addClass("active");
 		}
-		
-	}); 
+
+	});
 })(jQuery);
 </script>
 
@@ -49,10 +50,10 @@ function confirmDelete(code){
   <tiles:insertAttribute name="header" />
   <!-- End Header -->
   <!-- Begin Naviagtion -->
-  <tiles:insertAttribute name="menu" /> 
+  <tiles:insertAttribute name="menu" />
   <!-- End Naviagtion -->
   <!-- Begin Content -->
-  <div id="content"> 
+  <div id="content">
   		<tiles:insertAttribute name="globalmessages" />
 		<tiles:insertAttribute name="content" />
   </div>

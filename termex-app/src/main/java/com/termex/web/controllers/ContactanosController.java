@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,9 +26,11 @@ public class ContactanosController {
 	@Autowired
 	private ContactDAO contactDAO;
 
+	@Autowired
+	MessageSource messageSource;
+
 	@RequestMapping(value = "{language}/contactanos", method = RequestMethod.GET)
 	public String goContactanos(@PathVariable("language") String language, ModelMap modelMap, HttpServletRequest request) {
-		modelMap.put("language", language);
 		return "contactanos";
 	}
 
@@ -55,7 +58,8 @@ public class ContactanosController {
 			logger.error("Ha ocurrido un error al guardar el comentario ", e);
 		}
 
-		modelMap.put("SUCCESS_MESSAGE", "Gracias por tus comentarios, nos pondremos en contacto con usted lo más pronto posible");
+		String message = messageSource.getMessage("label.contact.success", null, request.getLocale());
+		modelMap.put("SUCCESS_MESSAGE", message);
 
 		return "contactanos";
 	}

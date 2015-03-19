@@ -59,6 +59,7 @@ h1.logo {
 h1.logo a {
 	display: block;
 	height: 36px;
+	/*background: url(../images/website-logo.gif) no-repeat left top;*/
 }
 /* Comman Elements of head elements */
 #search, .top_banner, .basket {
@@ -109,6 +110,10 @@ h1.logo a {
 .basket a {
 	width: 112px;
 	height: 16px;
+	/* TERMEX
+	display: block;
+	background: url(../images/shopping-basket_bg.gif) no-repeat left top;
+	*/
 }
 .basket p {
 	padding: 3px 0 0 26px;
@@ -195,7 +200,7 @@ h1.logo a {
 	padding-top: 50px;
 }
 .product_menu h2 {
-	background: #d7d7d7 url(../images/productmenu-h1-bg.png) no-repeat left top;
+	background: #d7d7d7 url(../images/productmenu-h1-bg-en.png) no-repeat left top;
 	height: 30px;
 	border: 1px solid #d7d7d7;
 	border-bottom: 0;
@@ -409,7 +414,7 @@ h1.logo a {
 }
 /* Store Locator */
 .store_locator {
-	background: url(../images/store-locator_bg.png) no-repeat left top;
+	background: url(../images/store-locator_bg-en.png) no-repeat left top;
 	padding-left: 76px;
 	margin-bottom: 20px;
 }

@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class AdminController {
 
 	private final Logger logger = LoggerFactory.getLogger(AdminController.class);
-	
+
 	@RequestMapping(value = "inicio", method = RequestMethod.GET)
-	public String goAdmin(Model model) {		
+	public String goAdmin(Model model) {
 		logger.info("Dentro de la consola de Administracion");
 		return "inicio";
 	}

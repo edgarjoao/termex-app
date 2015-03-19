@@ -1,9 +1,13 @@
 package com.termex.web.controllers;
 
+import java.util.Locale;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,11 +22,20 @@ public class UsefulLinksController {
 	private static final String HEADER_MESSAGE ="HEADER_MESSAGE";
 	private static final String CONTENT_MESSAGE ="CONTENT_MESSAGE";
 
+	@Autowired
+	MessageSource messageSource;
+
 	@RequestMapping(value = "{language}/vision", method = RequestMethod.GET)
 	public String goVision(@PathVariable("language") String language, ModelMap modelMap, HttpServletRequest request) {
 
-		modelMap.put(HEADER_MESSAGE, "Visión");
-		modelMap.put(CONTENT_MESSAGE, "Ser una empresa de primer nivel, propiciando el desarrollo económico de su personal y del Estado, contribuyendo a la calidad de vida de los Jaliscienses.");
+		Locale locale = new Locale(language);
+		String vision = messageSource.getMessage("label.vision", null, locale);
+		StringBuilder visionMessage = new StringBuilder();
+		visionMessage.append(messageSource.getMessage("label.vision1", null, request.getLocale()))
+		.append(messageSource.getMessage("label.vision2", null, request.getLocale()));
+
+		modelMap.put(HEADER_MESSAGE, vision);
+		modelMap.put(CONTENT_MESSAGE, visionMessage.toString());
 
 		return "vision";
 	}

@@ -3,14 +3,16 @@
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="lang" uri="/WEB-INF/tld/langTag.tld" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+<link rel="shortcut icon" href="${pageContext.request.contextPath}/images/favicon.ico" type="image/x-icon" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-<title>TERMEX - Terminales de México</title>
-<link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet" type="text/css" />
+<title>TER-MEX - Terminales de México</title>
+<link href="${pageContext.request.contextPath}/css/style_<lang:languageVar />.css" rel="stylesheet" type="text/css" />
 <link href="${pageContext.request.contextPath}/css/nav-menus.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/lightbox.css" />
 
@@ -44,14 +46,14 @@
 
       <div class="product_guide"> <!-- Go to Book Catalog -->
         <h2 class="box_title"><span>Product Guidelines</span></h2>
-        <p>Please consider going over our <a href="02-Orange-03-Products-List.html">product guidelines</a> before you purchase any item from our store.</p>
+        <p><spring:message code="label.query.our" /> <a href="${pageContext.request.contextPath}/catalogo_online.html"> <spring:message code="label.catalog.online" /> </a>.</p>
       </div>
 
       <div class="store_locator"><!-- Go To Map -->
         <h2 class="box_title"><span>Store Locator</span></h2>
-        <p>Use our Store Locator to find a store near you. <a href="02-Orange-03-Products-List.html">click here</a></p>
+        <p><spring:message code="label.locator" /> <a href="${pageContext.request.contextPath}/<lang:languageVar />/mapa.html"> <spring:message code="label.see.map" /> </a></p>
       </div>
-
+	<!--
       <div class="products_box">
         <h2 class="box_title">Best Sellers</h2>
         <div class="products_content clearfix">
@@ -70,6 +72,8 @@
           <div class="row end">&nbsp;</div>
         </div>
       </div>
+      -->
+
     </div>
   </div>
   <div class="footer">

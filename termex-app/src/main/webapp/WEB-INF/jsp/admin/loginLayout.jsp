@@ -8,6 +8,7 @@
 <head>
 <title>Terminales de México - Login</title>
 
+<meta name="robots" content="noindex,nofollow" />
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
 <script type="text/javascript" src="${pageContext.request.contextPath}/admin/js/jquery-1.8.3.js"></script>

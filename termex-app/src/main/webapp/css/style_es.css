@@ -59,6 +59,7 @@ h1.logo {
 h1.logo a {
 	display: block;
 	height: 36px;
+	/*background: url(../images/website-logo.gif) no-repeat left top;*/
 }
 /* Comman Elements of head elements */
 #search, .top_banner, .basket {
@@ -109,6 +110,10 @@ h1.logo a {
 .basket a {
 	width: 112px;
 	height: 16px;
+	/* TERMEX
+	display: block;
+	background: url(../images/shopping-basket_bg.gif) no-repeat left top;
+	*/
 }
 .basket p {
 	padding: 3px 0 0 26px;

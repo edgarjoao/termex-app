@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -47,6 +48,9 @@ public class ProductsController {
 
 	@Autowired
 	private ProductService productService;
+
+	@Autowired
+	MessageSource messageSource;
 
 	@RequestMapping(value = "{language}/{categoryId}/terminales", method = RequestMethod.GET)
 	public String goProductos(@PathVariable("language") String language, @PathVariable("categoryId") String categoryId,
@@ -96,7 +100,8 @@ public class ProductsController {
 			modelMap.put("lang", language);
 			modelMap.put("queryTerm", queryTerm);
 
-			modelMap.put("SEARCH_DESCRIPTION", "Resultados de la búsqueda \"" + queryTerm + "\"");
+			String searchMessage = messageSource.getMessage("label.search.results", new Object[]{queryTerm}, request.getLocale());
+			modelMap.put("SEARCH_DESCRIPTION", searchMessage);
 
 			List<ProductDetail> productDetail = productDAO.searchProductDetail(queryTerm, lang);
 			modelMap.put("terminals", productDetail);

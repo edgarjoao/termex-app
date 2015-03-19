@@ -45,15 +45,8 @@
 		</c:forEach>
    </ul>
  </div>
- <%--
+
  <div class="box newsletter_box">
-   <h2>Newsletter</h2>
-   <p>Sign up for our weekly newsletter and stay up-to-date with the latest offers, and newest products.</p>
-   <form action="02-Orange-01-Home-Page.html">
-     <input name="email" type="text" tabindex="1" onblur="if (this.value==''){this.value='E-mail Address'};" onfocus="if(this.value=='E-mail Address'){this.value=''};" value="E-mail Address" />
-     <div align="right">
-       <input name="subscribe" type="submit" value="Subscribe" class="button" />
-     </div>
-   </form>
+   <h2>TER-MEX</h2>
+   <p><spring:message code="banner.left.message" /> </p>
  </div>
-  --%>

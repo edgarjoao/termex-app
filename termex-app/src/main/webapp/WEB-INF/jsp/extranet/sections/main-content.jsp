@@ -41,7 +41,7 @@ $(document).ready(function(){
 </div>
 
  <div class="products_box featured">
-   <h2 class="box_title">Terminales</h2>
+   <h2 class="box_title"><spring:message code="label.product.terminals" /></h2>
    <div class="products_content">
      <div class="top_gradient clearfix">
 		<c:forEach var="row" items="${terminals_random}" varStatus="loop">

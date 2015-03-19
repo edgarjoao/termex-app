@@ -1,6 +1,7 @@
 package com.termex.web.controllers;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -12,6 +13,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.HandlerMapping;
 
 import com.termex.daos.BannerDAO;
 import com.termex.daos.ProductDAO;
@@ -43,6 +45,7 @@ public class HomeController {
 		logger.info("Lenguage {}", language);
 
 		try {
+
 			List<CategoryDetailView> categorryDetails = categoryService.getCategoryViewListByLanguage(language);
 			int lang = LanguageUtils.getLanguageId(language);
 			modelMap.put("nombreTerminal", lang ==1?"Terminales":"Terminals");
