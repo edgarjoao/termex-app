@@ -2,6 +2,7 @@ package com.termex.web.controllers;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -61,7 +62,6 @@ public class ProductsController {
 		try {
 			List<CategoryDetailView> categorryDetails = categoryService.getCategoryViewListByLanguage(language);
 			int lang = LanguageUtils.getLanguageId(language);
-			modelMap.put("nombreTerminal", lang ==1?"Terminales":"Terminals");
 			modelMap.put("categories", categorryDetails);
 			modelMap.put("lang", language);
 
@@ -90,7 +90,7 @@ public class ProductsController {
 
 	@RequestMapping(value = "{language}/buscar_productos", method = RequestMethod.GET)
 	public String searchProductos(@PathVariable("language") String language,@RequestParam("query") String queryTerm,
-			ModelMap modelMap, HttpServletRequest request, HttpSession httpSession) throws ProductException, CategoryException {
+			ModelMap modelMap, HttpServletRequest request, HttpSession httpSession, Locale locale) throws ProductException, CategoryException {
 
 		try {
 			List<CategoryDetailView> categorryDetails = categoryService.getCategoryViewListByLanguage(language);
@@ -100,7 +100,7 @@ public class ProductsController {
 			modelMap.put("lang", language);
 			modelMap.put("queryTerm", queryTerm);
 
-			String searchMessage = messageSource.getMessage("label.search.results", new Object[]{queryTerm}, request.getLocale());
+			String searchMessage = messageSource.getMessage("label.search.results", new Object[]{queryTerm}, locale);
 			modelMap.put("SEARCH_DESCRIPTION", searchMessage);
 
 			List<ProductDetail> productDetail = productDAO.searchProductDetail(queryTerm, lang);

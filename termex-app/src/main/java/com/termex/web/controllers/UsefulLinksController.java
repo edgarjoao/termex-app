@@ -26,13 +26,12 @@ public class UsefulLinksController {
 	MessageSource messageSource;
 
 	@RequestMapping(value = "{language}/vision", method = RequestMethod.GET)
-	public String goVision(@PathVariable("language") String language, ModelMap modelMap, HttpServletRequest request) {
+	public String goVision(@PathVariable("language") String language,Locale locale, ModelMap modelMap, HttpServletRequest request) {
 
-		Locale locale = new Locale(language);
 		String vision = messageSource.getMessage("label.vision", null, locale);
 		StringBuilder visionMessage = new StringBuilder();
-		visionMessage.append(messageSource.getMessage("label.vision1", null, request.getLocale()))
-		.append(messageSource.getMessage("label.vision2", null, request.getLocale()));
+		visionMessage.append(messageSource.getMessage("label.vision1", null, locale))
+		.append(messageSource.getMessage("label.vision2", null, locale));
 
 		modelMap.put(HEADER_MESSAGE, vision);
 		modelMap.put(CONTENT_MESSAGE, visionMessage.toString());
@@ -41,19 +40,36 @@ public class UsefulLinksController {
 	}
 
 	@RequestMapping(value = "{language}/mision", method = RequestMethod.GET)
-	public String goMision(@PathVariable("language") String language, ModelMap modelMap, HttpServletRequest request) {
+	public String goMision(@PathVariable("language") String language, ModelMap modelMap,
+			HttpServletRequest request, Locale locale) {
 
-		modelMap.put(HEADER_MESSAGE, "Misión");
-		modelMap.put(CONTENT_MESSAGE, "Somos una empresa innovadora de la industria de la transformación, que fabricamos productos de este sector, impulsando el desarrollo del Estado de Jalisco. Contamos con una amplia experiencia en esta rama productiva, ya que tenemos más de 30 años produciendo los bienes que requieren nuestros clientes a nivel nacional.");
+		String mision = messageSource.getMessage("label.mission", null, locale);
+
+		StringBuilder missionMsg = new StringBuilder();
+		missionMsg.append(messageSource.getMessage("label.mission1", null, locale))
+		.append(messageSource.getMessage("label.mission2", null, locale))
+		.append(messageSource.getMessage("label.mission3", null, locale))
+		.append(messageSource.getMessage("label.mission4", null, locale));
+
+		modelMap.put(HEADER_MESSAGE, mision);
+		modelMap.put(CONTENT_MESSAGE, missionMsg.toString());
 
 		return "mision";
 	}
 
 	@RequestMapping(value = "{language}/objetivos", method = RequestMethod.GET)
-	public String goObjetivos(@PathVariable("language") String language, ModelMap modelMap, HttpServletRequest request) {
+	public String goObjetivos(@PathVariable("language") String language, ModelMap modelMap,
+			HttpServletRequest request, Locale locale) {
 
-		modelMap.put(HEADER_MESSAGE, "Objetivos");
-		modelMap.put(CONTENT_MESSAGE, "Producir bienes y productos acordes con las necesidades de la industria automotriz del país y otras afines. < br/> Lograr ser una empresa que exporte sus productos, con la finalidad de lograr la expansión y superación económica de la empresa y de los elementos humanos con que cuenta.");
+		String objetives = messageSource.getMessage("label.objetives", null, locale);
+
+		StringBuilder objMessage = new StringBuilder();
+		objMessage.append(messageSource.getMessage("label.objetives1", null, locale))
+		.append(messageSource.getMessage("label.objetives2", null, locale))
+		.append(messageSource.getMessage("label.objetives3", null, locale));
+
+		modelMap.put(HEADER_MESSAGE, objetives);
+		modelMap.put(CONTENT_MESSAGE, objMessage.toString());
 
 		return "objetivos";
 	}

@@ -1,6 +1,7 @@
 package com.termex.web.controllers;
 
 import java.util.Date;
+import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -36,7 +37,8 @@ public class ContactanosController {
 
 
 	@RequestMapping(value = "{language}/contactanos", method = RequestMethod.POST)
-	public String contactanos(@PathVariable("language") String language, ModelMap modelMap, HttpServletRequest request) {
+	public String contactanos(@PathVariable("language") String language, ModelMap modelMap,
+			HttpServletRequest request, Locale locale) {
 		logger.info("Dentro del Contacto Form");
 		String nombre = (String) request.getParameter("nombre");
 		String correo = (String) request.getParameter("correo");
@@ -58,7 +60,7 @@ public class ContactanosController {
 			logger.error("Ha ocurrido un error al guardar el comentario ", e);
 		}
 
-		String message = messageSource.getMessage("label.contact.success", null, request.getLocale());
+		String message = messageSource.getMessage("label.contact.success", null, locale);
 		modelMap.put("SUCCESS_MESSAGE", message);
 
 		return "contactanos";

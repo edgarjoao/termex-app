@@ -57,7 +57,7 @@
         <br />
         <p><spring:message code="label.locator" /> <a href="${pageContext.request.contextPath}/<lang:languageVar />/mapa.html"> <spring:message code="label.see.map" /> </a></p>
       </div>
-
+	<%--
       <div class="products_box">
         <h2 class="box_title">Best Sellers</h2>
         <div class="products_content clearfix">
@@ -76,7 +76,7 @@
           <div class="row end">&nbsp;</div>
         </div>
       </div>
-
+	--%>
     </div>
 
   </div>

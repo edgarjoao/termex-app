@@ -59,7 +59,6 @@ h1.logo {
 h1.logo a {
 	display: block;
 	height: 36px;
-	/*background: url(../images/website-logo.gif) no-repeat left top;*/
 }
 /* Comman Elements of head elements */
 #search, .top_banner, .basket {
@@ -401,7 +400,7 @@ h1.logo a {
 	margin-bottom: 20px;
 }
 .product_guide h2.box_title {
-	background: url(../images/product_guide_headline_bg.jpg) no-repeat left top;
+	background: url(../images/product_guide_headline_bg-es.png) no-repeat left top;
 	height: 60px;
 }
 .product_guide p {
