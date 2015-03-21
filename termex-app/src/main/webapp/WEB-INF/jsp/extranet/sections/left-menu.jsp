@@ -49,4 +49,9 @@
  <div class="box newsletter_box">
    <h2>TER-MEX</h2>
    <p><spring:message code="banner.left.message" /> </p>
+   <img alt="" src="${pageContext.request.contextPath}/images/battery1.jpg" width="130" border="0">
  </div>
+ <div class="payment_box">
+        <h2><spring:message code="payment.options" /> </h2>
+        <a href="javascript:void(0);"><img src="${pageContext.request.contextPath}/images/payment_options.png" width="172" height="71" alt="" /></a>
+  </div>

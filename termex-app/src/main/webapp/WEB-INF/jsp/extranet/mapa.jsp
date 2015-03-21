@@ -64,6 +64,11 @@
 			clickable: true
 		};
 		var marker = new google.maps.Marker(markerOptions);
+
+		var infowindow = new google.maps.InfoWindow({
+		  content: "TERMEX"
+		});
+		infowindow.open(map, marker);
 	}
 
   });

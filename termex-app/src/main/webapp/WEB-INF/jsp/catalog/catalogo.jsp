@@ -10,6 +10,7 @@
 <title>Using turn.js and the new zoom feature</title>
 <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
 <meta name="viewport" content="width = 1050, user-scalable = no" />
+<link rel="shortcut icon" href="${pageContext.request.contextPath}/images/favicon.ico" type="image/x-icon" />
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/catalogo/jquery.min.1.7.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/catalogo/modernizr.2.5.3.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/catalogo/lib/hash.js"></script>
@@ -122,7 +123,7 @@ function loadApp() {
 
 			// The number of pages
 
-			pages: 12,
+			pages: 11,
 
 			// Events
 

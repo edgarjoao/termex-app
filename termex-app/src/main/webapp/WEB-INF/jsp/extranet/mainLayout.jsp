@@ -57,26 +57,19 @@
         <br />
         <p><spring:message code="label.locator" /> <a href="${pageContext.request.contextPath}/<lang:languageVar />/mapa.html"> <spring:message code="label.see.map" /> </a></p>
       </div>
-	<%--
+
       <div class="products_box">
-        <h2 class="box_title">Best Sellers</h2>
+        <h2 class="box_title">Audio</h2>
         <div class="products_content clearfix">
-          <div class="asinItem">
-            <div class="prodImage"><a href="02-Orange-04-Products-Details.html"><img src="images/dummy_pixel.gif" alt="" /></a></div>
-            <h3><a href="02-Orange-04-Products-Details.html">Cras convallis Lamp <strong>($30)</strong></a></h3>
-          </div>
-          <div class="asinItem">
-            <div class="prodImage"><a href="02-Orange-04-Products-Details.html"><img src="images/dummy_pixel.gif" alt="" /></a></div>
-            <h3><a href="02-Orange-04-Products-Details.html">Nam viverra metus eget est Chair <strong>($52)</strong></a></h3>
-          </div>
-          <div class="asinItem">
-            <div class="prodImage"><a href="02-Orange-04-Products-Details.html"><img src="images/dummy_pixel.gif" alt="" /></a></div>
-            <h3><a href="02-Orange-04-Products-Details.html">Office Desk <strong>($102)</strong></a></h3>
-          </div>
+          <c:forEach var="row" items="${terminals_audio}" varStatus="loop">
+	          <div class="asinItem">
+	            <div class="prodImage"><a href="${pageContext.request.contextPath}/${lang}/${row.id.idProd}/detalle.html"><img src="${pageContext.request.contextPath}/${row.id.idProd}/imagen.html" alt="" /></a></div>
+	            <h3><a href="${pageContext.request.contextPath}/${lang}/${row.id.idProd}/detalle.html">${row.product.prodCode}</a></h3>
+	          </div>
+          </c:forEach>
           <div class="row end">&nbsp;</div>
         </div>
       </div>
-	--%>
     </div>
 
   </div>

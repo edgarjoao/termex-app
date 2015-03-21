@@ -54,6 +54,10 @@ public class HomeController {
 			modelMap.put("banners", bannerDAO.getBannerDetailList(lang));
 			List<ProductDetail> productDetails = productDAO.getProductDetailsRandom(lang);
 			modelMap.put("terminals_random", productDetails);
+
+			List<ProductDetail> productDetailsAudio= productDAO.getProductDetailsAudioRandom(lang);
+			modelMap.put("terminals_audio", productDetailsAudio);
+
 		} catch (CategoryException e) {
 			e.printStackTrace();
 		} catch (BannerException e) {

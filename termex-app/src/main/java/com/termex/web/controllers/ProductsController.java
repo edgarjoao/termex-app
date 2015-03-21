@@ -62,6 +62,7 @@ public class ProductsController {
 		try {
 			List<CategoryDetailView> categorryDetails = categoryService.getCategoryViewListByLanguage(language);
 			int lang = LanguageUtils.getLanguageId(language);
+			modelMap.put("nombreTerminal", lang ==1?"Terminales":"Terminals");
 			modelMap.put("categories", categorryDetails);
 			modelMap.put("lang", language);
 
