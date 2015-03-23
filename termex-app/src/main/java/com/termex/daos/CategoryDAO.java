@@ -71,7 +71,7 @@ public class CategoryDAO extends HibernateDaoSupport {
 	@SuppressWarnings("unchecked")
 	public List<CategoryDetail> getListOfCategoryDetails(int categoryId) throws CategoryException {
 		try{
-			return getSession().createSQLQuery("SELECT * FROM CATEGORY_DETAIL WHERE ID_CAT = :catId")
+			return getSession().createSQLQuery("SELECT * FROM category_detail WHERE ID_CAT = :catId")
 					.addEntity(CategoryDetail.class)
 					.setParameter("catId", categoryId).list();
 		}catch(Exception e){
@@ -97,7 +97,7 @@ public class CategoryDAO extends HibernateDaoSupport {
 		try{
 			logger.info("Obtener la lista de Detalle Categoria {}", categoryId);
 			StringBuilder sql = new StringBuilder(0);
-			sql.append("SELECT c FROM Category c WHERE c.ID_CAT = :catId");
+			sql.append("SELECT c FROM category c WHERE c.ID_CAT = :catId");
 
 			Query query = getSession().createSQLQuery(sql.toString()).addEntity(CategoryDetail.class)
 					.setParameter("catId", categoryId);
@@ -117,10 +117,10 @@ public class CategoryDAO extends HibernateDaoSupport {
 
 			logger.info("Categoria a borrar {}", categoryId);
 
-			getSession().createSQLQuery("DELETE FROM CATEGORY_DETAIL WHERE ID_CAT = :catId")
+			getSession().createSQLQuery("DELETE FROM category_detail WHERE ID_CAT = :catId")
 				.setParameter("catId", categoryId).executeUpdate();
 
-			getSession().createQuery("DELETE FROM Category c WHERE c.idCat = :catId")
+			getSession().createQuery("DELETE FROM category c WHERE c.idCat = :catId")
 				.setParameter("catId", categoryId).executeUpdate();
 
 			transaction.commit();
@@ -155,7 +155,7 @@ public class CategoryDAO extends HibernateDaoSupport {
 	@SuppressWarnings("unchecked")
 	public List<Category> getListOfCategories() throws CategoryException {
 		try{
-			return getSession().createSQLQuery("SELECT * FROM CATEGORY").addEntity(Category.class).list();
+			return getSession().createSQLQuery("SELECT * FROM category").addEntity(Category.class).list();
 		}catch(Exception e){
 			CategoryException categoryException = new CategoryException(e,
 					TermexException.LAYER_DAO, TermexException.ACTION_SELECT);
@@ -169,8 +169,8 @@ public class CategoryDAO extends HibernateDaoSupport {
 		try{
 
 			StringBuilder sql = new StringBuilder();
-			sql.append("SELECT * FROM CATEGORY c ")
-				.append("INNER JOIN CATEGORY_DETAIL cd ")
+			sql.append("SELECT * FROM category c ")
+				.append("INNER JOIN category_detail cd ")
 				.append("on c.ID_CAT = cd.ID_CAT ")
 				.append("WHERE cd.ID_LANG = :langId");
 
@@ -189,8 +189,8 @@ public class CategoryDAO extends HibernateDaoSupport {
 	public List<CategoryDetail> getListOfCatDetailsByLang(int languageId) throws CategoryException{
 		try{
 			StringBuilder sql = new StringBuilder();
-			sql.append("SELECT * FROM CATEGORY_DETAIL cd ")
-				.append("INNER JOIN CATEGORY c ")
+			sql.append("SELECT * FROM category_detail cd ")
+				.append("INNER JOIN category c ")
 				.append("WHERE cd.ID_LANG = :langId");
 
 			Query query = getSession().createSQLQuery(sql.toString()).addEntity(

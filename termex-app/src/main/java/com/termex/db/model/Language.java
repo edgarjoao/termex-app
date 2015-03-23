@@ -8,13 +8,15 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 
 /**
  * The persistent class for the language database table.
- * 
+ *
  */
 @Entity
+@Table(name="language")
 @NamedQuery(name="Language.findAll", query="SELECT l FROM Language l")
 public class Language implements Serializable {
 	private static final long serialVersionUID = 1L;

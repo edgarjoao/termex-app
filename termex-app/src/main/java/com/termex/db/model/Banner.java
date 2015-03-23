@@ -1,11 +1,21 @@
 package com.termex.db.model;
 
 import java.io.Serializable;
-
-import javax.persistence.*;
-
 import java.util.Date;
 import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Lob;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 
 /**
@@ -13,6 +23,7 @@ import java.util.List;
  *
  */
 @Entity
+@Table(name="banner")
 @NamedQuery(name="Banner.findAll", query="SELECT b FROM Banner b")
 public class Banner implements Serializable {
 	private static final long serialVersionUID = 1L;

@@ -303,6 +303,19 @@
 				</plugins>
 			</build>
 		</profile>
+
+		<profile>
+			<id>eatj</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<build>
+				<filters>
+					<filter>src/main/environments/eatj.properties</filter>
+				</filters>
+				<finalName>ROOT</finalName>
+			</build>
+		</profile>
 	</profiles>
 
 </project>

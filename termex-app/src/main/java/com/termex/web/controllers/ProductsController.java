@@ -101,11 +101,12 @@ public class ProductsController {
 			modelMap.put("lang", language);
 			modelMap.put("queryTerm", queryTerm);
 
-			String searchMessage = messageSource.getMessage("label.search.results", new Object[]{queryTerm}, locale);
-			modelMap.put("SEARCH_DESCRIPTION", searchMessage);
-
 			List<ProductDetail> productDetail = productDAO.searchProductDetail(queryTerm, lang);
 			modelMap.put("terminals", productDetail);
+
+			String totalResult = String.valueOf(productDetail.size());
+			String searchMessage = messageSource.getMessage("label.search.results", new Object[]{queryTerm, totalResult}, locale);
+			modelMap.put("SEARCH_DESCRIPTION", searchMessage);
 
 		} catch (ProductException pException) {
 			httpSession.setAttribute(CUSTOM_EXCEPTION, pException);

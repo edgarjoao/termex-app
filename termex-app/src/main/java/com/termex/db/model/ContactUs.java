@@ -9,7 +9,7 @@ import java.util.Date;
 
 /**
  * The persistent class for the contact_us database table.
- * 
+ *
  */
 @Entity
 @Table(name="contact_us")
