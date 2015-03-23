@@ -22,57 +22,43 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.flow.1.2.auto.js"></script>
 
 <script>
-  $(document).ready(function() {
+function initialize() {
+	  var myLatlng = new google.maps.LatLng(20.658146,-103.342562);
+	  var mapOptions = {
+	    zoom: 15,
+	    center: myLatlng,
+		mapTypeId: google.maps.MapTypeId.ROADMAP
+	  };
 
-	var latitude ="20.6305865";
-	var longitude = "-103.332139";
-	showMap(latitude, longitude);
+	  var map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
-	var map;
+	  var contentString = '<div id="content">'+
+	      '<div id="siteNotice">'+
+		  '<b>TER-MEX</b>' +
+	      '</div>'+
+	      '<div id="bodyContent">'+
+	      'Calle Tuberosa no. 905 entre '+
+	      'Conchas y González Gallo.<br /><br />'+
+		  '<center><img BORDER="0" ALIGN="center" src="${pageContext.request.contextPath}/images/termex-2_logo.jpg" /></center><br />'
+	      '</div>'+
+	      '</div>';
 
-	function showMap(latitude,longitude) {
+	  var infowindow = new google.maps.InfoWindow({
+	      content: contentString
+	  });
 
-		var googleLatandLong = new google.maps.LatLng(latitude,longitude);
+	  var marker = new google.maps.Marker({
+	      position: myLatlng,
+	      map: map,
+	      title: 'Uluru (Ayers Rock)'
+	  });
 
-		var mapOptions = {
-			zoom: 14,
-			center: googleLatandLong,
-			mapTypeId: google.maps.MapTypeId.ROADMAP
-		};
-
-		var contentString = '<div id="content">'+
-		 					+''
-		 					+''
-		 					+''
-		 					'</div>';
-
-
-		var mapDiv = document.getElementById("map");
-		map = new google.maps.Map(mapDiv, mapOptions);
-
-		var title = "TER-MEX";
-		addMarker(map, googleLatandLong, title, "");
-
+	  infowindow.open(map,marker);
 	}
 
-	function addMarker(map, latlong, title, content) {
+	google.maps.event.addDomListener(window, 'load', initialize);
 
-		var markerOptions = {
-			position: latlong,
-			map: map,
-			title: title,
-			clickable: true
-		};
-		var marker = new google.maps.Marker(markerOptions);
-
-		var infowindow = new google.maps.InfoWindow({
-		  content: "TERMEX"
-		});
-		infowindow.open(map, marker);
-	}
-
-  });
-  </script>
+</script>
 </head>
 <body>
 <div class="wrap" id="two_columns">
