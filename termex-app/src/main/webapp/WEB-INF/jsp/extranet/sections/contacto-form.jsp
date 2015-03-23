@@ -45,6 +45,6 @@
 		<p><label for="comentarios"><spring:message code="label.contact.message" />:</label></p><textarea rows="10" name="comentarios" style="border: solid 1px #dcdcdc;padding: 4px;background: #fafbfb;width:360px;"></textarea>
 	 	</fieldset>
 	<br />
-	<input type="submit" class="silver_btn" value="Enviar" name="save_for_later">
+	<input type="submit" class="silver_btn" value='<spring:message code="label.contact.send" />' name="save_for_later">
 	</form>
 <h2 class="page_subtitle"></h2>

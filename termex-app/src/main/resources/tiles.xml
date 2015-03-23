@@ -69,11 +69,20 @@
 			<put-attribute name="header" value="/WEB-INF/jsp/extranet/sections/header.jsp" />
 			<put-attribute name="menu" value="/WEB-INF/jsp/extranet/sections/menu.jsp" />
 			<put-attribute name="footer" value="/WEB-INF/jsp/extranet/sections/footer.jsp" />
+			<put-attribute name="content-section" value="message-section" />
 		</definition>
 
-		<definition name="vision" extends="usefulLinks" />
-		<definition name="mision" extends="usefulLinks" />
-		<definition name="objetivos" extends="usefulLinks" />
+		<definition name="vision" extends="usefulLinks">
+			<put-attribute name="content-section" value="/WEB-INF/jsp/extranet/sections/vision-section.jsp" />
+		</definition>
+
+		<definition name="mision" extends="usefulLinks">
+			<put-attribute name="content-section" value="/WEB-INF/jsp/extranet/sections/mision-section.jsp" />
+		</definition>
+
+		<definition name="objetivos" extends="usefulLinks">
+			<put-attribute name="content-section" value="/WEB-INF/jsp/extranet/sections/objetivos-section.jsp" />
+		</definition>
 
 		<definition name="contactanos" template="/WEB-INF/jsp/extranet/contactanos.jsp">
 			<put-attribute name="header" value="/WEB-INF/jsp/extranet/sections/header.jsp" />

@@ -9,7 +9,7 @@
 <link rel="shortcut icon" href="${pageContext.request.contextPath}/images/favicon.ico" type="image/x-icon" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-<title>TER-MEX - Terminales de México :: ${HEADER_MESSAGE}</title>
+<title>TER-MEX - Terminales de México ::</title>
 <link href="${pageContext.request.contextPath}/css/style_<lang:languageVar />.css" rel="stylesheet" type="text/css" />
 <link href="${pageContext.request.contextPath}/css/nav-menus.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-1.3.2.min.js"></script>
@@ -25,13 +25,7 @@
    <tiles:insertAttribute name="menu" />
   </div>
   <div class="content clearfix">
-    <div class="main_content">
-      <h1 class="page_title">${HEADER_MESSAGE}</h1>
-      <br />
-      <div class="row end">&nbsp;</div>
-      <h2 class="page_subtitle">${CONTENT_MESSAGE}</h2>
-      <br />
-    </div>
+	<tiles:insertAttribute name="content-section" />
   </div>
   <div class="footer">
 	<tiles:insertAttribute name="footer" />

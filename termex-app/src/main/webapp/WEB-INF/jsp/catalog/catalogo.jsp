@@ -65,12 +65,14 @@
 				<img src="pages/11-thumb.jpg" width="76" height="100" class="page-11">
 				<span>10-11</span>
 			</li>
+			<!--
 			<li class="i">
 				<img src="pages/12-thumb.jpg" width="76" height="100" class="page-12">
 				<span>12</span>
 			</li>
-		<ul>
-	<div>
+			 -->
+		</ul>
+	</div>
 </div>
 </div>
 

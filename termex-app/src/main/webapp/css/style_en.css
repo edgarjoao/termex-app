@@ -483,7 +483,7 @@ h1.page_title {
 h2.page_subtitle {
 	font-size: 20px;
 	color: #888;
-	padding: 20px 0 4px;
+	padding: 20px 100px 20px 0;
 	margin-bottom: 20px;
 	border-bottom: 1px solid #d7d7d7;
 	letter-spacing: -1px;
