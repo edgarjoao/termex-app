@@ -11,6 +11,9 @@
 <link rel="shortcut icon" href="${pageContext.request.contextPath}/images/favicon.ico" type="image/x-icon" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+<meta name="keywords" content='<spring:message code="meta.keywords.value" />' lang="<lang:languageVar />" />
+<meta name="description" content='<spring:message code="meta.description.value" />'  lang="<lang:languageVar />" />
+<meta name="Author" content='<spring:message code="meta.author.value" />'  lang="<lang:languageVar />" />
 <title>TER-MEX - Terminales de México</title>
 <link href="${pageContext.request.contextPath}/css/style_<lang:languageVar />.css" rel="stylesheet" type="text/css" />
 <link href="${pageContext.request.contextPath}/css/nav-menus.css" rel="stylesheet" type="text/css" />
