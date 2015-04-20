@@ -14,7 +14,7 @@
 				  	<a data-lightbox="roadtrip" data-title="${row.proddDescription}" href="${pageContext.request.contextPath}/${row.id.idProd}/imagen.html">
 						<img src="${pageContext.request.contextPath}/${row.id.idProd}/imagen.html" alt="" />
 				  	</a>
-				  	<h3><a href="${pageContext.request.contextPath}/${lang}/${row.id.idProd}/detalle.html">${row.product.prodCode}</a></h3>
+				  	<h3><a href="${pageContext.request.contextPath}/${lang}/${row.id.idProd}/detalle.html">${row.proddDescription}</a></h3>
 				  </div>
 			</div>
 	</c:forEach>

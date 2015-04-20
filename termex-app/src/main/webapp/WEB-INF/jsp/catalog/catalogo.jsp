@@ -7,7 +7,7 @@
 <!--[if IE 9 ]>    <html lang="en" class="ie9"> <![endif]-->
 <!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
 <head>
-<title>Using turn.js and the new zoom feature</title>
+<title>TER-MEX - Terminales de México</title>
 <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
 <meta name="viewport" content="width = 1050, user-scalable = no" />
 <link rel="shortcut icon" href="${pageContext.request.contextPath}/images/favicon.ico" type="image/x-icon" />

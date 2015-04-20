@@ -64,7 +64,7 @@
           <c:forEach var="row" items="${terminals_audio}" varStatus="loop">
 	          <div class="asinItem">
 	            <div class="prodImage"><a href="${pageContext.request.contextPath}/${lang}/${row.id.idProd}/detalle.html"><img src="${pageContext.request.contextPath}/${row.id.idProd}/imagen.html" alt="" /></a></div>
-	            <h3><a href="${pageContext.request.contextPath}/${lang}/${row.id.idProd}/detalle.html">${row.product.prodCode}</a></h3>
+	            <h3><a href="${pageContext.request.contextPath}/${lang}/${row.id.idProd}/detalle.html">${row.proddDescription}</a></h3>
 	          </div>
           </c:forEach>
           <div class="row end">&nbsp;</div>

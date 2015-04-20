@@ -43,18 +43,23 @@ $(document).ready(function(){
  <div class="products_box featured">
    <h2 class="box_title"><spring:message code="label.product.terminals" /></h2>
    <div class="products_content">
-     <div class="top_gradient clearfix">
-		<c:forEach var="row" items="${terminals_random}" varStatus="loop">
+	<div class="top_gradient clearfix">
+		<div class="products_list">
+	<c:forEach var="row" items="${terminals_random}" varStatus="loop">
+	 		<c:if test="${not loop.first and loop.index % 3 == 0}">
+                </div><div class="row">
+            </c:if>
+
 			<div class="asinItem <c:if test="${loop.index % 3 == 0}">last</c:if>">
 				  <div class="prodImage">
-					<a data-lightbox="roadtrip" data-title="${row.proddDescription}" href="${pageContext.request.contextPath}/${row.id.idProd}/imagen.html">
+				  	<a data-lightbox="roadtrip" data-title="${row.proddDescription}" href="${pageContext.request.contextPath}/${row.id.idProd}/imagen.html">
 						<img src="${pageContext.request.contextPath}/${row.id.idProd}/imagen.html" alt="" />
-					</a>
-					<h3><a href="${pageContext.request.contextPath}/${lang}/${row.id.idProd}/detalle.html">${row.product.prodCode}</a></h3>
+				  	</a>
+				  	<h3><a href="${pageContext.request.contextPath}/${lang}/${row.id.idProd}/detalle.html">${row.proddDescription}</a></h3>
 				  </div>
 			</div>
-			<c:if test="${loop.last}"><div class="row end">&nbsp;</div></c:if>
-		</c:forEach>
+	</c:forEach>
+</div>
 	</div>
    </div>
  </div>
