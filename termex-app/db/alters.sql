@@ -1,0 +1,1 @@
+ALTER TABLE contact_us ADD CONT_CLIENT_ID varchar(100);

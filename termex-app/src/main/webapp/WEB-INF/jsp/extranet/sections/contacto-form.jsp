@@ -7,6 +7,11 @@
 	$(document).ready(function(){
 		$("#nombreId").focus();
 
+		ga(function(tracker) {
+			 var clientId = tracker.get('clientId');			 
+			 $('#client-id').val(clientId);
+		});		
+
 		$("#contactoForm").validate({
 			rules: {
 				nombre: "required",
@@ -43,6 +48,7 @@
 		<p><label for="nombre"><spring:message code="label.contact.name" />:</label></p> <input type="text" value="" id="nombreId" style="border: solid 1px #dcdcdc;padding: 4px;background: #fafbfb;width:360px;" name="nombre">
 		<p><label for="correo"><spring:message code="label.contact.email" />:</label></p> <input type="text" value="" id="correoId" style="border: solid 1px #dcdcdc;padding: 4px;background: #fafbfb;width:360px;" name="correo">
 		<p><label for="comentarios"><spring:message code="label.contact.message" />:</label></p><textarea rows="10" name="comentarios" style="border: solid 1px #dcdcdc;padding: 4px;background: #fafbfb;width:360px;"></textarea>
+		<input type="hidden" name="clientId" id="client-id">
 	 	</fieldset>
 	<br />
 	<input type="submit" class="silver_btn" value='<spring:message code="label.contact.send" />' name="save_for_later">

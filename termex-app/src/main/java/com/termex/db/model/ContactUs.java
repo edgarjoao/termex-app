@@ -34,6 +34,9 @@ public class ContactUs implements Serializable {
 
 	@Column(name="CONT_TITLE")
 	private String contTitle;
+	
+	@Column(name="CONT_CLIENT_ID")
+	private String clientId;
 
 	public ContactUs() {
 	}
@@ -76,6 +79,14 @@ public class ContactUs implements Serializable {
 
 	public void setContTitle(String contTitle) {
 		this.contTitle = contTitle;
+	}
+
+	public String getClientId() {
+		return clientId;
+	}
+
+	public void setClientId(String clientId) {
+		this.clientId = clientId;
 	}
 
 }

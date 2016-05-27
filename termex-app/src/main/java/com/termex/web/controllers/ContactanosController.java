@@ -43,16 +43,19 @@ public class ContactanosController {
 		String nombre = (String) request.getParameter("nombre");
 		String correo = (String) request.getParameter("correo");
 		String comentarios = (String) request.getParameter("comentarios");
+		String clientId = (String) request.getParameter("clientId");
 
 		logger.info("Nombre: {}", nombre);
 		logger.info("Correo: {}", correo);
 		logger.info("Comentarios: {}", comentarios);
+		logger.info("Cliente {}", clientId);
 
 		ContactUs contact = new ContactUs();
 		contact.setContEmail(correo == null ?"":correo);
 		contact.setContTitle(nombre==null?"":nombre);
 		contact.setContContent(comentarios==null?"":comentarios);
 		contact.setContCreatedDate(new Date());
+		contact.setClientId(clientId);
 
 		try {
 			contactDAO.addContactMessage(contact);
