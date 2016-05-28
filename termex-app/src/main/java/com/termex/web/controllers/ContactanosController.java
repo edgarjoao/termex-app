@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.termex.daos.ContactDAO;
 import com.termex.db.model.ContactUs;
 import com.termex.exceptions.ContactException;
+import com.termex.exceptions.MailException;
+import com.termex.services.MailService;
 
 @Controller
 public class ContactanosController {
@@ -26,6 +28,9 @@ public class ContactanosController {
 
 	@Autowired
 	private ContactDAO contactDAO;
+	
+	@Autowired
+	MailService mailService;
 
 	@Autowired
 	MessageSource messageSource;
@@ -60,7 +65,13 @@ public class ContactanosController {
 		try {
 			contactDAO.addContactMessage(contact);
 		} catch (ContactException e) {
-			logger.error("Ha ocurrido un error al guardar el comentario ", e);
+			logger.error("Ha ocurrido un error al guardar el comentario {}", e);
+		}
+
+		try {
+			mailService.sendEmail(contact);
+		} catch (MailException e) {
+			logger.error("Ha ocurrido un error al tratar de enviar el correo de contacto {}", e);
 		}
 
 		String message = messageSource.getMessage("label.contact.success", null, locale);

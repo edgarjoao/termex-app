@@ -73,6 +73,39 @@
 		</security:user-service>
 	  </security:authentication-provider>
 	</security:authentication-manager>
+	
+	<!-- Email Configuration -->
+	<bean id="velocityEngine" class="org.springframework.ui.velocity.VelocityEngineFactoryBean">
+		<property name="resourceLoaderPath" value="/WEB-INF/velocity/" />
+	</bean>
+
+	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="s98.eatj.com" />		
+		<property name="port" value="587" />
+		<property name="username" value="contacto@ter-mex.com.mx"/>
+		<property name="password" value=""/>
+		<property name="defaultEncoding" value="UTF-8"/>		
+		<property name="javaMailProperties">
+		   <props>
+		      <prop key="mail.smtp.auth">true</prop>
+              <prop key="mail.smtp.starttls.enable">true</prop>
+		   	  <prop key="mail.debug">false</prop>
+	        </props>
+		</property>
+	</bean>
+
+	<bean id="simpleMailMessage" class="org.springframework.mail.SimpleMailMessage">
+        <property name="from">
+            <value>contacto@ter-mex.com.mx</value>
+        </property>
+        <property name="subject" value="Tienes un nuevo mensaje de TER-MEX"/>
+        <property name="to">
+        	<array>
+        		<value></value>
+            	<value></value>
+        	</array>           
+        </property>
+    </bean>
 
 	<!-- HTTP Security -->
 	<security:http auto-config="true" use-expressions="true" >

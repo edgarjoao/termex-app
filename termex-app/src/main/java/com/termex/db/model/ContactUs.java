@@ -6,36 +6,35 @@ import javax.persistence.*;
 
 import java.util.Date;
 
-
 /**
  * The persistent class for the contact_us database table.
  *
  */
 @Entity
-@Table(name="contact_us")
-@NamedQuery(name="ContactUs.findAll", query="SELECT c FROM ContactUs c")
+@Table(name = "contact_us")
+@NamedQuery(name = "ContactUs.findAll", query = "SELECT c FROM ContactUs c")
 public class ContactUs implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="ID_CONT")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "ID_CONT")
 	private int idCont;
 
-	@Column(name="CONT_CONTENT")
+	@Column(name = "CONT_CONTENT")
 	private String contContent;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="CONT_CREATED_DATE")
+	@Column(name = "CONT_CREATED_DATE")
 	private Date contCreatedDate;
 
-	@Column(name="CONT_EMAIL")
+	@Column(name = "CONT_EMAIL")
 	private String contEmail;
 
-	@Column(name="CONT_TITLE")
+	@Column(name = "CONT_TITLE")
 	private String contTitle;
-	
-	@Column(name="CONT_CLIENT_ID")
+
+	@Column(name = "CONT_CLIENT_ID")
 	private String clientId;
 
 	public ContactUs() {
@@ -87,6 +86,12 @@ public class ContactUs implements Serializable {
 
 	public void setClientId(String clientId) {
 		this.clientId = clientId;
+	}
+
+	@Override
+	public String toString() {
+		return "ContactUs [idCont=" + idCont + ", contContent=" + contContent + ", contCreatedDate=" + contCreatedDate
+				+ ", contEmail=" + contEmail + ", contTitle=" + contTitle + ", clientId=" + clientId + "]";
 	}
 
 }
