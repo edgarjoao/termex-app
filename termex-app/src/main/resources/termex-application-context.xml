@@ -87,8 +87,10 @@
 		<property name="defaultEncoding" value="UTF-8"/>		
 		<property name="javaMailProperties">
 		   <props>
+		      <prop key="mail.transport.protocol">smtp</prop>
 		      <prop key="mail.smtp.auth">true</prop>
               <prop key="mail.smtp.starttls.enable">true</prop>
+              <prop key="mail.smtp.ssl.trust">*</prop>
 		   	  <prop key="mail.debug">false</prop>
 	        </props>
 		</property>
@@ -101,7 +103,7 @@
         <property name="subject" value="Tienes un nuevo mensaje de TER-MEX"/>
         <property name="to">
         	<array>
-        		<value></value>
+            	<value></value>
             	<value></value>
         	</array>           
         </property>

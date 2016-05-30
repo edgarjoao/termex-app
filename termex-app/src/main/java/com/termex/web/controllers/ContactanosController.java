@@ -5,6 +5,7 @@ import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.lang.StringEscapeUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,27 +56,36 @@ public class ContactanosController {
 		logger.info("Comentarios: {}", comentarios);
 		logger.info("Cliente {}", clientId);
 
-		ContactUs contact = new ContactUs();
+		final ContactUs contact = new ContactUs();
 		contact.setContEmail(correo == null ?"":correo);
 		contact.setContTitle(nombre==null?"":nombre);
 		contact.setContContent(comentarios==null?"":comentarios);
 		contact.setContCreatedDate(new Date());
 		contact.setClientId(clientId);
-
-		try {
-			contactDAO.addContactMessage(contact);
-		} catch (ContactException e) {
-			logger.error("Ha ocurrido un error al guardar el comentario {}", e);
-		}
-
-		try {
-			mailService.sendEmail(contact);
-		} catch (MailException e) {
-			logger.error("Ha ocurrido un error al tratar de enviar el correo de contacto {}", e);
-		}
-
+		
+		Thread feedbackThread = new Thread(new Runnable() {
+			
+			@Override
+			public void run() {
+				
+				try {
+					contactDAO.addContactMessage(contact);
+				} catch (ContactException contactException) {
+					logger.error("Ha ocurrido un error al guardar el comentario {}", contactException);
+				}
+				
+				try {
+					mailService.sendEmail(contact);
+				} catch (MailException e) {
+					logger.error("Ha ocurrido un error al tratar de enviar el correo de contacto {}", e);
+				}
+			}
+		});
+		
+		feedbackThread.start();
+	
 		String message = messageSource.getMessage("label.contact.success", null, locale);
-		modelMap.put("SUCCESS_MESSAGE", message);
+		modelMap.put("SUCCESS_MESSAGE", StringEscapeUtils.unescapeHtml(message));
 
 		return "contactanos";
 	}
